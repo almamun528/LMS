@@ -1,12 +1,10 @@
-# React + Vite
+# Skill Sprit a learning management system.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Description: This project represent the Learning Management System where tutors can upload course and student(user) can buy and enroll the course..
 
-Currently, two official plugins are available:
+Feature: e-commerce, video , authentication, review system. Role base authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Design: Full responsive design for mobile, tablet and desktop friendly, Testimonial, swiper Slider 
 
-## Expanding the ESLint configuration
+Functionalities : React js , tailwindCss , Firebase, Redux toolkit, Axios 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

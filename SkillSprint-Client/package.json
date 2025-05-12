@@ -10,15 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.1",
     "@tailwindcss/vite": "^4.1.6",
+    "axios": "^1.9.0",
+    "firebase": "^11.7.1",
     "humanize-duration": "^3.32.1",
     "quill": "^2.0.3",
     "rc-progress": "^4.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.0",
     "react-simple-star-rating": "^5.1.7",
     "react-youtube": "^10.1.0",
+    "swiper": "^11.2.6",
     "tailwindcss": "^4.1.6",
     "uniquid": "^1.1.4"
   },
