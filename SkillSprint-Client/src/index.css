@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+/* this two class from component/slider to hide the arrow  */
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+    display: none;
+}
