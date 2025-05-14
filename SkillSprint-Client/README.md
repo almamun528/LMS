@@ -1,4 +1,4 @@
-# Skill Sprit a learning management system.
+# Skill Sprit : A learning management system.
 
 Description: This project represent the Learning Management System where tutors can upload course and student(user) can buy and enroll the course..
 
