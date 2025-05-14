@@ -6,5 +6,4 @@ Feature: e-commerce, video , authentication, review system. Role base authentica
 
 Design: Full responsive design for mobile, tablet and desktop friendly, Testimonial, swiper Slider 
 
-Functionalities : React js , tailwindCss , Firebase, Redux toolkit, Axios 
-
+Functionalities : React js , tailwindCss , Firebase, Redux toolkit, Axios , DaisyUi 

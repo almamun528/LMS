@@ -1,18 +1,25 @@
 import React from "react";
 import websiteLogo from "../../assets/logo.png";
+import { Link } from "react-router";
 
-// import websiteLogoBG from "../../assets/logoBG.png"
 const Navbar = () => {
+  // const isCourseListPage = location.pathname.includes("/course-list");
   return (
     <section className="sticky top-0 z-50 ">
       <div className=" navbar bg-gray-100 shadow-sm ">
         <div className="flex-1">
-          <img className="w-24 cursor-pointer" src={websiteLogo} alt="" />
+          <Link to="/">
+            {" "}
+            <img className="w-24 cursor-pointer" src={websiteLogo} alt="" />
+          </Link>
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end">
             <div className="dropdown dropdown-end">
               <button className="mx-2">Become Tutor</button>
+              <Link to="/my-enrollments" className="mx-2 hover:text-purple-800">
+                My Enrollments
+              </Link>
               <div
                 tabIndex={0}
                 type="button"
