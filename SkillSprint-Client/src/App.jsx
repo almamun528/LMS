@@ -13,15 +13,24 @@ import StudentEnrolled from "./pages/educator/StudentEnrolled";
 import Navbar from "./component/student/Navbar";
 import Login from "./component/Events/Login";
 import SignUp from "./component/events/SignUp";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { authObserver } from "./ReduxAPI/Auth/authObserver";
 
 const App = () => {
+  //!User Observer
+  const dispatch = useDispatch();
+  useEffect(() => {
+    authObserver(dispatch);
+  }, [dispatch]);
+
   const isEducatorRoute = useMatch("/educator/*"); //is the user belongs from tutor
   return (
     <section>
-      {!isEducatorRoute && <Navbar />} 
+      {!isEducatorRoute && <Navbar />}
       <Routes>
-        <Route path="/sign-up" element={<SignUp/>} />
-        <Route path="/login" element={ <Login/> } />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/course-list" element={<CoursesList />} />
         <Route path="/course-list/:input" element={<CoursesList />} />

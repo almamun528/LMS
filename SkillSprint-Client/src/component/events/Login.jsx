@@ -11,9 +11,8 @@ function Login() {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              Log in to your account to access your dashboard, manage your
+              profile, and stay connected with your community.
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -36,7 +35,10 @@ function Login() {
               </fieldset>
             </div>
             <p className="text-center p-2">
-              New here? open account <Link className="text-purple-950 underline" to='/sign-up'>Sign-up</Link>
+              New here? open account{" "}
+              <Link className="text-purple-950 underline" to="/sign-up">
+                Sign-up
+              </Link>
             </p>
           </div>
         </div>
