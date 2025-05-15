@@ -28,10 +28,10 @@ const Navbar = () => {
           <div className="flex-none">
             <div className="dropdown dropdown-end">
               <div className="dropdown dropdown-end">
-                <button className="mx-2">Become Tutor</button>
+                <button className="mx-2 hidden lg:inline-block">Become Tutor</button>
                 <Link
                   to="/my-enrollments"
-                  className="mx-2 hover:text-purple-800"
+                  className="mx-2 hover:text-purple-800 hidden md:inline-block"
                 >
                   My Enrollments
                 </Link>
@@ -51,6 +51,13 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
                 >
+                  <button className="mx-2 lg:hidden ">Become Tutor</button>
+                  <Link
+                    to="/my-enrollments"
+                    className="mx-2 hover:text-purple-800 lg:hidden "
+                  >
+                    My Enrollments
+                  </Link>
                   <li>Profile</li>
                   {user && <li>email: {user?.email} </li>}
 
