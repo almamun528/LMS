@@ -24,6 +24,7 @@
     "react-router-dom": "^7.6.0",
     "react-simple-star-rating": "^5.1.7",
     "react-youtube": "^10.1.0",
+    "sweetalert2": "^11.21.0",
     "swiper": "^11.2.6",
     "tailwindcss": "^4.1.6",
     "uniquid": "^1.1.4"

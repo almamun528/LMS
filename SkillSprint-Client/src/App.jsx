@@ -18,12 +18,14 @@ import { useEffect } from "react";
 import { authObserver } from "./ReduxAPI/Auth/authObserver";
 
 const App = () => {
-  //!User Observer
   const dispatch = useDispatch();
+  //!User Observer
   useEffect(() => {
-    authObserver(dispatch);
+    const unsubscribe = authObserver(dispatch);
+    return () => {
+      unsubscribe();
+    };
   }, [dispatch]);
-
   const isEducatorRoute = useMatch("/educator/*"); //is the user belongs from tutor
   return (
     <section>

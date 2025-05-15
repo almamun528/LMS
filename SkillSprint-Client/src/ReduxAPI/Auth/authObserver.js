@@ -4,11 +4,20 @@ import { app } from "../../Firebase/firebase.config";
 const auth = getAuth(app);
 
 export const authObserver = (dispatch) => {
-  onAuthStateChanged(auth, (user) => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
     if (user) {
-      dispatch(setUser(user));
+      dispatch(
+        setUser({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+        })
+      );
     } else {
       dispatch(setUser(null));
     }
   });
+  return unsubscribe;
 };

@@ -1,15 +1,37 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../ReduxAPI/Auth/authSlice";
+import Swal from "sweetalert2";
 
 function SignUp() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    console.log("form data--> ", data);
-    console.log("name->", data.name, "email--> ", data.email);
+    dispatch(registerUser({ email: data.email, password: data.password }))
+      .unwrap()
+      .then((result) => {
+        if (result) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${result?.email} Is Registered`,
+            showConfirmButton: false,
+            timer: 1500,
+          })
+          navigate('/')
+        }
+        console.log("user is here-->", result);
+      })
+      .catch((err) => {
+        console.log("registration failed", err.message);
+      });
   };
 
   return (

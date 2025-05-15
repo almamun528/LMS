@@ -7,11 +7,11 @@ import { Provider } from "react-redux";
 import { store } from "./ReduxAPI/store.js";
 
 createRoot(document.getElementById("root")).render(
-  <section className="max-w-7xl mx-auto"> 
-    <Provider store={store}>
-      <BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <section className="max-w-7xl mx-auto">
         <App />
-      </BrowserRouter>
-    </Provider>
-  </section>
+      </section>
+    </BrowserRouter>
+  </Provider>
 );

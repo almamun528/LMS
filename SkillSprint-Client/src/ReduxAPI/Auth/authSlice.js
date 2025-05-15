@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {app} from '../../Firebase/firebase.config'
+import { app } from "../../Firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -21,7 +21,14 @@ export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async ({ email, password }) => {
     const result = await createUserWithEmailAndPassword(auth, email, password);
-    return result.user;
+    const user = result.user;
+    return {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+    };
   }
 );
 // Login user with email and password
@@ -29,15 +36,28 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ email, password }) => {
     const result = await signInWithEmailAndPassword(auth, email, password);
-    return result.user;
+    const user = result.user;
+    return {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+    };
   }
 );
 // Login user with google account
 export const googleLogin = createAsyncThunk("auth/googleLogin", async () => {
   const result = await signInWithPopup(auth, googleProvider);
-  return result.user;
+  const user = result.user;
+  return {
+    uid: user.uid,
+    email: user.email,
+    displayName: user.displayName,
+    photoURL: user.photoURL,
+    emailVerified: user.emailVerified,
+  };
 });
-
 // Logout user
 export const logOutUser = createAsyncThunk("auth/logOutUser", async () => {
   await signOut(auth);
