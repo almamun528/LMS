@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 function SignUp() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -24,16 +24,15 @@ function SignUp() {
             title: `${result?.email} Is Registered`,
             showConfirmButton: false,
             timer: 1500,
-          })
-          navigate('/')
+          });
+          navigate("/");
         }
-        console.log("user is here-->", result);
       })
       .catch((err) => {
+        alert(err?.message);
         console.log("registration failed", err.message);
       });
   };
-
   return (
     <section>
       <div className="hero bg-base-200 min-h-screen">

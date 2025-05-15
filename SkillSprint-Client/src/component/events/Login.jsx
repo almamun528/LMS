@@ -27,7 +27,6 @@ function Login() {
           });
           navigate("/");
         }
-        console.log("login from result", result);
       })
       .catch((err) => {
         if (err.code === "auth/invalid-credential") {
