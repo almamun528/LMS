@@ -1,31 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// import { assets } from "../../assets/assets";
 
-const CourseCard = () => {
+const CourseCard = ({ course }) => {
   return (
-    <section>
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">
-            Card Title
-            <div className="badge badge-secondary">NEW</div>
-          </h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-          <div className="card-actions justify-end">
-            <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div>
+    <Link to={"/course/" + course._id} onClick={() => scrollTo(0, 0)}>
+      <section>
+        <div className="card bg-base-100 w-96 shadow-sm">
+          <figure>
+            <img src={course?.courseThumbnail} alt="Shoes" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{course?.courseTitle}</h2>
+            <h2 className="card-title">{course?.educator?.name}</h2>
+            <div>
+              <p>4.4</p>
+            </div>
+            {/* <div>
+            {[...Array(5)].map((_, i) => (
+              <img key={i} src={assets.Logo} alt="image" />
+            ))}
+          </div> */}
+            <p>22</p>
+            <p>
+              price :
+              {(
+                course.coursePrice -
+                (course.discount * course.coursePrice) / 100
+              ).toFixed(2)}
+            </p>
+            <p>price : {course.discount} </p>
+            <div className="card-actions justify-end">
+              <div className="badge badge-outline">Fashion</div>
+              <div className="badge badge-outline">Products</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Link>
   );
 };
 

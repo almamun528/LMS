@@ -190,6 +190,20 @@ export const dummyCourses = [
         ],
       },
     ],
+    educator: "78302842248911",
+    enrolledStudents: [
+      "user_2qlvxyr02B4Bq6hT0Gvaasft9V",
+      "user_2qlvxyr02B4Bq6hT0Gvaasft9x",
+      "user_2qlvxyr02B4Bq6hT0Gvaasft9w",
+      "user_2qlvxyr02B4Bq6hT0Gvaasft9z",
+    ],
+    courseRatings: [
+      {
+        userId: "user_2qjlgkAqIMpir2flWRzvwktE0w",
+        rating: 5,
+        _id: "6773e3760cb0ab9742183012134",
+      },
+    ],
     createdAt: "2025-01-02T12:30:00.000Z",
     updatedAt: "2025-01-03T11:20:00.000Z",
     __v: 1,
@@ -227,6 +241,20 @@ export const dummyCourses = [
             lectureOrder: 2,
           },
         ],
+      },
+    ],
+    educator: "78302842248912",
+    enrolledStudents: [
+      "user_2qlvxyr02B4Bq6hT0Gvasft9V",
+      "user_2qlvxyr02B4Bq6T0Gvaasft9x",
+      "user_2qlvxyr02B4B6hT0Gvaasft9w",
+      "user_2qlvxyr02BBq6hT0Gvaasft9z",
+    ],
+    courseRatings: [
+      {
+        userId: "user_2qjgkAqIMpir2flWRzvwktE0w",
+        rating: 4,
+        _id: "6773e760cb0ab9742183012134",
       },
     ],
     createdAt: "2025-01-05T09:15:00.000Z",
