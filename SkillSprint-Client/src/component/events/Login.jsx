@@ -1,13 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../ReduxAPI/Auth/authSlice.js";
 import Swal from "sweetalert2";
+import { IoIosEye } from "react-icons/io";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 function Login() {
+  const [show, setShow] = useState(true);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -37,6 +42,7 @@ function Login() {
           });
         }
       });
+    // password Field is shown or not
   };
   return (
     <section>
@@ -62,16 +68,33 @@ function Login() {
                 {errors.email && (
                   <span className="text-red-500">This field is required</span>
                 )}
+                {/*============================== password div Starts ================================= */}
                 <label className="label">Password</label>
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                  {...register("password", { required: true })}
-                />
-                {errors.password && (
-                  <span className="text-red-500">This field is required</span>
-                )}
+
+                <div className="relative">
+                  <input
+                    type={show ? "Password" : "text"}
+                    className="input pr-10 :" // Add right padding for the icon
+                    placeholder="password"
+                    {...register("password", { required: true })}
+                  />
+                  <button onClick={() => setShow(!show)}>
+                    {show ? (
+                      <FaRegEyeSlash
+                        className={`absolute top-5 z-10 right-6 -translate-y-1/2 text-purple-950 text-3xl cursor-pointer`}
+                      />
+                    ) : (
+                      <IoIosEye className="absolute top-5 z-10 right-6  -translate-y-1/2 text-purple-950 text-3xl cursor-pointer" />
+                    )}
+                  </button>
+
+                  {errors.password && (
+                    <span className="text-red-500 text-sm mt-1 block">
+                      This field is required
+                    </span>
+                  )}
+                </div>
+                {/*============================== password div end================================= */}
                 <div>
                   <p className="link link-hover">Forgot password?</p>
                 </div>

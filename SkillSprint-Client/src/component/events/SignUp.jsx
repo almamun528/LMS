@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../ReduxAPI/Auth/authSlice";
 import Swal from "sweetalert2";
-
+import { useState } from "react";
+import { IoIosEye } from "react-icons/io";
+import { FaRegEyeSlash } from "react-icons/fa6";
 function SignUp() {
+  const [show, setShow] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -72,34 +75,49 @@ function SignUp() {
                 {errors.email && (
                   <span className="text-red-500">Enter a valid email</span>
                 )}
+                {/*============================== password div Starts ================================= */}
                 <label className="label">Password</label>
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                  {...register("password", {
-                    required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password must be at least 6 characters",
-                    },
-                    maxLength: {
-                      value: 15,
-                      message: "Password must be under 15 characters",
-                    },
-                    pattern: {
-                      value: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@#$!%*?&]+$/,
-                      message:
-                        "Password must include at least one uppercase letter and one number",
-                    },
-                  })}
-                />
-                {errors.password && (
-                  <span className="text-red-500">
-                    {errors.password.message}
-                  </span>
-                )}
 
+                <div className="relative">
+                  <input
+                    type={show ? "Password" : "text"}
+                    className="input pr-10 :" // Add right padding for the icon
+                    placeholder="password"
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters",
+                      },
+                      maxLength: {
+                        value: 15,
+                        message: "Password must be under 15 characters",
+                      },
+                      pattern: {
+                        value: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@#$!%*?&]+$/,
+                        message:
+                          "Password must include at least one uppercase letter and one number",
+                      },
+                    })}
+                  />
+                  <button onClick={() => setShow(!show)}>
+                    {show ? (
+                      <FaRegEyeSlash
+                        className={`absolute top-5 z-10 right-6 -translate-y-1/2 text-purple-950 text-3xl cursor-pointer`}
+                      />
+                    ) : (
+                      <IoIosEye className="absolute top-5 z-10 right-6  -translate-y-1/2 text-purple-950 text-3xl cursor-pointer" />
+                    )}
+                  </button>
+
+                  {errors.password && (
+                    <span className="text-red-500">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </div>
+                {/*============================== password div end================================= */}
+                {/*  */}
                 <button
                   type="submit"
                   className="btn btn-neutral bg-purple-950 hover:bg-purple-900 mt-4"

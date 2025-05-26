@@ -1,11 +1,5 @@
-import React from 'react'
-
 const MyEnrollments = () => {
-  return (
-    <div>
-      my enrolment
-    </div>
-  )
-}
+  return <div>my enroll MyEnrollments</div>;
+};
 
-export default MyEnrollments
+export default MyEnrollments;

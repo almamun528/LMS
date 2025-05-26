@@ -1,6 +1,3 @@
-
-
-
 const StudentEnrolled = () => {
   return <div>student enroll</div>;
 };
