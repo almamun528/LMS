@@ -1,4 +1,4 @@
-import Logo from "../../assets/logoBG.png";
+import Logo from "../../assets/logo.png";
 import { Link, useMatch } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import useUser from "../../hook/useUser";
@@ -7,14 +7,12 @@ import { logOutUser } from "../../ReduxAPI/Auth/authSlice";
 
 const Navbar = () => {
   const isLoginRoute = useMatch("/login");
-  const user = useUser(); //get the user from hook
+  const {user} = useUser(); //get the user from hook
   // dispatch (send action redux store to call the log-out function to make current user null )
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logOutUser()); //call the logout function
   };
-
-  console.log(user);
 
   const MenuItems = (
     <>
@@ -22,6 +20,18 @@ const Navbar = () => {
       <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
         Profile
       </button>
+      <Link
+        to="/my-enrollments"
+        className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+      >
+        My Enrollment
+      </Link>
+      <Link
+        to="/course-list"
+        className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+      >
+        Course List
+      </Link>
       <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
         Become Educator
       </button>
@@ -52,8 +62,8 @@ const Navbar = () => {
   );
 
   return (
-    <section>
-      <div className="navbar bg-base-100 shadow-sm">
+    <section className="sticky top-0 w-full">
+      <div className={`navbar bg-base-100 shadow-sm`}>
         <div className="flex-1">
           <Link to="/">
             {" "}
