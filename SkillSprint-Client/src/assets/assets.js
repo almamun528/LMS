@@ -1,4 +1,8 @@
 import logo from "./logo.svg";
+import facebook_Logo from './Companies/facebook.png'
+import udemy_logo from './Companies/udemy-logo.png'
+import coursera_logo from './Companies/coursera.png'
+import google_logo from './Companies/gooogle.png'
 import logo_dark from "./logo_dark.svg";
 import search_icon from "./search_icon.svg";
 import Digital_Marketing_Png from "./DigitalMarketing.png";
@@ -46,6 +50,7 @@ import profile_img2 from "./profile_img2.png";
 import profile_img3 from "./profile_img3.png";
 import lesson_icon from "./lesson_icon.svg";
 
+// export all images
 export const assets = {
   logo,
   search_icon,
@@ -54,6 +59,10 @@ export const assets = {
   Stand_up_Png,
   sketch,
   microsoft_logo,
+  udemy_logo,
+  coursera_logo,
+  google_logo,
+  facebook_Logo,
   walmart_logo,
   accenture_logo,
   adobe_logo,

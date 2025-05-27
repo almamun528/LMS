@@ -32,9 +32,12 @@ const Navbar = () => {
       >
         Course List
       </Link>
-      <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
-        Become Educator
-      </button>
+      {user && (
+        <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
+          Become Educator
+        </button>
+      )}
+      {/* logout button 👇 */}
       {user ? (
         <button
           onClick={() => handleLogout()}
@@ -62,13 +65,13 @@ const Navbar = () => {
   );
 
   return (
-    <section className="sticky top-0 w-full">
+    <section className="sticky top-0 w-full z-50">
       <div className={`navbar bg-base-100 shadow-sm`}>
-        <div className="flex-1">
+        <div className="flex-2 md:flex-1">
           <Link to="/">
             {" "}
             <img
-              className="h-24 cursor-pointer"
+              className="SkillSpritLogo  md:h-24 cursor-pointer"
               src={Logo}
               alt="website logo"
             />
