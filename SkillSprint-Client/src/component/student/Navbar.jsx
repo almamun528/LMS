@@ -1,5 +1,5 @@
 import Logo from "../../assets/logo.png";
-import { Link, useMatch } from "react-router-dom";
+import { Link, useMatch, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import useUser from "../../hook/useUser";
 import { useDispatch } from "react-redux";
@@ -7,7 +7,9 @@ import { logOutUser } from "../../ReduxAPI/Auth/authSlice";
 
 const Navbar = () => {
   const isLoginRoute = useMatch("/login");
-  const {user} = useUser(); //get the user from hook
+  const navigate = useNavigate();
+  const { user, isEducator } = useUser(); //get the user from hook
+
   // dispatch (send action redux store to call the log-out function to make current user null )
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -17,15 +19,19 @@ const Navbar = () => {
   const MenuItems = (
     <>
       {user && <p className="my-2 text-purple-900">Hi! {user?.email} </p>}
-      <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
-        Profile
-      </button>
-      <Link
-        to="/my-enrollments"
-        className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
-      >
-        My Enrollment
-      </Link>
+      {user && (
+        <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
+          Profile
+        </button>
+      )}
+      {user && !isEducator && (
+        <Link
+          to="/my-enrollments"
+          className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+        >
+          My Enrollment
+        </Link>
+      )}
       <Link
         to="/course-list"
         className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
@@ -33,8 +39,11 @@ const Navbar = () => {
         Course List
       </Link>
       {user && (
-        <button className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
-          Become Educator
+        <button
+          onClick={() => navigate("/educator")}
+          className="text-left cursor-pointer hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+        >
+          {isEducator ? "Educator Dashboard" : "Become Educator"}
         </button>
       )}
       {/* logout button 👇 */}

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchCourses } from "../../ReduxAPI/Course/courseSlice";
 import CourseCard from "./CourseCard";
+import { assets } from "../../assets/assets";
+
 function CoursesSection() {
   const dispatch = useDispatch();
 
@@ -16,20 +18,31 @@ function CoursesSection() {
   
 
   return (
-    <section className="my-10">
-      <div className="top-area text-center mb-5">
-        <h2 className=" my-5 text-purple-950 text-xl md:text-3xl font-semibold">
-          Learn from the best
-        </h2>
-        <p className="md:w-8/12 mx-auto text-gray-500">
-          Discover our top-rated course across various categories.From coding
-          and design to business and wellness, our courses are crafted to
-          deliver result
-        </p>
-      </div>
-      {/* content area Starts */}
-
-      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-3">
+    <section className="my-20">
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-3">
+        {/* content 1st children */}
+        <div className="col-span-1">
+          <span className="flex items-center gap-3">
+            <h6 className=" text-purple-800">Course We are Provide</h6>
+            <img className="h-10 w-10" src={assets.hat} />
+          </span>
+          <h2 className=" my-5 text-purple-950 text-xl md:text-3xl font-semibold">
+            Leading Course <span className="text-purple-700">Category</span>
+          </h2>
+          <p className=" text-gray-500 mt-10">
+            Discover our top-rated course across various categories.From coding
+            and design to business and wellness, our courses are crafted to
+            deliver result
+          </p>
+          <Link
+            to={"/course-list"}
+            onClick={() => scrollTo(0, 0)}
+            className=" animate-pulse bg-purple-800 text-white mt-20 place-items-center btn  hover:bg-purple-950 hover:text-white border-purple-900 px-10 py-3 rounded"
+          >
+            Explore All Course
+          </Link>
+        </div>
+        {/* 1st children ends */}
         {loading && (
           <h1 className="text-center animate-bounce">Loading.....</h1>
         )}
@@ -38,21 +51,11 @@ function CoursesSection() {
         {!loading &&
           !error &&
           courses
-            .slice(0, 4)
+            .slice(0, 5)
             .map((course, idx) => (
               <CourseCard course={course} key={course?._id} />
             ))}
       </main>
-      {/* content area Ends */}
-      <div className="bottom-area text-center my-10">
-        <Link
-          to={"/course-list"}
-          onClick={() => scrollTo(0, 0)}
-          className="place-items-center btn text-purple-900 hover:bg-purple-950 hover:text-white border-purple-900 px-10 py-3 rounded"
-        >
-          See all courses
-        </Link>
-      </div>
     </section>
   );
 }

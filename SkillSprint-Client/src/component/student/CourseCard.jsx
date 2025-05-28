@@ -44,7 +44,7 @@ function CourseCard({ course }) {
           {/* bottom area */}
           <div className="card-actions justify-start">
             <button className="btn bg-purple-950 text-white hover:bg-purple-900">
-              Enroll Now
+            Course  Details
             </button>
           </div>
         </div>

@@ -1,8 +1,14 @@
 import logo from "./logo.svg";
-import facebook_Logo from './Companies/facebook.png'
-import udemy_logo from './Companies/udemy-logo.png'
-import coursera_logo from './Companies/coursera.png'
-import google_logo from './Companies/gooogle.png'
+import hat from "./hat.png";
+import creative from './creativity.png'
+import facebook from "./socialMedia/facebook.png";
+import linkedin from "./socialMedia/linkedin.png";
+import instagram from "./socialMedia/instagram.png";
+import twitter from "./socialMedia/twitter.png";
+import facebook_Logo from "./Companies/facebook.png";
+import udemy_logo from "./Companies/udemy-logo.png";
+import coursera_logo from "./Companies/coursera.png";
+import google_logo from "./Companies/gooogle.png";
 import logo_dark from "./logo_dark.svg";
 import search_icon from "./search_icon.svg";
 import Digital_Marketing_Png from "./DigitalMarketing.png";
@@ -49,10 +55,22 @@ import profile_img from "./profile_img.png";
 import profile_img2 from "./profile_img2.png";
 import profile_img3 from "./profile_img3.png";
 import lesson_icon from "./lesson_icon.svg";
+import creative_Brain from './creative-brain.png'
+import career_path from './career-path.png';
+import target from './target.png'
 
 // export all images
 export const assets = {
   logo,
+  creative,
+  facebook,
+  creative_Brain,
+  instagram,
+  twitter,
+  linkedin,
+  hat,
+  career_path,
+  target,
   search_icon,
   Digital_Marketing_Png,
   Online_course,
@@ -118,28 +136,34 @@ export const dummyEducatorData = {
 
 export const dummyTestimonial = [
   {
+    id: 1,
     name: "Donald Jackman",
     role: "SWE 1 @ Amazon",
     image: assets.profile_img_1,
-    rating: 5,
-    feedback:
-      "I've been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+    about:
+      "Software Engineer passionate about scalable backend systems and clean code.",
   },
   {
+    id: 2,
     name: "Richard Nelson",
     role: "SWE 2 @ Samsung",
     image: assets.profile_img_2,
-    rating: 4,
-    feedback:
-      "I've been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+    about:
+      "Frontend specialist with 6+ years of experience building responsive interfaces.",
   },
   {
+    id: 3,
     name: "James Washington",
     role: "SWE 2 @ Google",
     image: assets.profile_img_3,
-    rating: 4.5,
-    feedback:
-      "I've been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.",
+    about: "Tech enthusiast focused on AI/ML and full-stack development.",
+  },
+  {
+    id: 4,
+    name: "Emily Rose",
+    role: "SWE 2 @ Meta",
+    image: assets.profile_img3,
+    about: "Data Structure and Algorithm Based full-stack development.",
   },
 ];
 

@@ -4,10 +4,11 @@ import Marquee from "react-fast-marquee";
 import { assets } from "../../assets/assets";
 function Companies() {
   return (
-    <section className="my-10 md:my-16">
+    <section className="my-20 md:my-16">
       <div className="top-heading">
         <h2 className="text-center text-purple-950 text-xl md:text-3xl font-semibold">
-          Empowering Learners from the World’s Leading Companies
+          Empowering Learners from the{" "}
+          <span className="text-purple-800">World’s Leading Companies</span>
         </h2>
         <div className="divider divider-primary w-1/4 mx-auto"></div>
       </div>

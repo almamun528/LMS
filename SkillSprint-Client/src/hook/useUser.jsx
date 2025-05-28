@@ -2,11 +2,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const useUser = () => {
+  const [isEducator, SetisEducator] = useState(false);
+  const user = useSelector((state) => state.auth.user);
 
-const [isAdmin,SetIsAdmin]=useState(false)
-const user = useSelector((state) => state.auth.user);
-
-
-  return {user,isAdmin}
+  return { user, isEducator };
 };
 export default useUser;
