@@ -1,12 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { dummyCourses } from "../../assets/assets";
 
+// function for fetch course data
 export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
   async () => {
     return dummyCourses;
   }
 );
+// function to calculate average rating of course.
+export const calculateRating = (course) => {
+  if (course.courseRatings.length === 0) {
+    return 0;
+  }
+  let totalRating = 0;
+  course.courseRatings.forEach((rating) => {
+    totalRating += rating.rating;
+  });
+  return totalRating / course.courseRatings.length;
+};
 
 const coursesSlice = createSlice({
   name: "courses",

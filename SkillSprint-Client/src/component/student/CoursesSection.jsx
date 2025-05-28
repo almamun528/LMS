@@ -13,7 +13,7 @@ function CoursesSection() {
     // fetch all courses from redux 
     dispatch(fetchCourses());
   }, [dispatch]);
-  console.log(courses);
+  
 
   return (
     <section className="my-10">

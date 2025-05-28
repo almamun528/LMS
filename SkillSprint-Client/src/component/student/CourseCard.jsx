@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
+import { calculateRating } from "../../ReduxAPI/Course/courseSlice";
 
 function CourseCard({ course }) {
   return (
@@ -16,24 +17,25 @@ function CourseCard({ course }) {
           <h2 className="font-semibold">{course.courseTitle}</h2>
           <p>{course.educator.name}</p>
           {/* Ratings */}
-          <div className="rating-area">
-            <p>4.5</p>
-            <div className="flex bg-amber-200">
-              {[
-                ...Array(5).map((_, idx) => (
-                  <img
-                    key={idx}
-                    src={assets.star}
-                    alt="star"
-                    className="w-3.5 h-3.5"
-                  />
-                )),
-              ]}
+          <div className="rating-area flex gap-2 items-center justify-between">
+            <span>Average Rating : {calculateRating(course)}</span>
+            <div className="flex">
+              {Array.from({ length: 5 }).map((_, idx) => (
+                <img
+                  key={idx}
+                  className="h-3.5 w-3.5"
+                  src={
+                    idx < Math.floor(calculateRating(course))
+                      ? assets.star
+                      : assets.star_blank
+                  }
+                />
+              ))}
             </div>
-            <p className="text-gray-500">22</p>
+            <p className="text-gray-500">{course.courseRatings.length}</p>
           </div>
           <p className="text-gray-800">
-            Price:${" "} 
+            Price:${" "}
             {(
               course.coursePrice -
               (course.discount * course.coursePrice) / 100
@@ -41,7 +43,9 @@ function CourseCard({ course }) {
           </p>
           {/* bottom area */}
           <div className="card-actions justify-start">
-            <button className="btn bg-purple-950 text-white hover:bg-purple-900">Enroll Now</button>
+            <button className="btn bg-purple-950 text-white hover:bg-purple-900">
+              Enroll Now
+            </button>
           </div>
         </div>
       </Link>
