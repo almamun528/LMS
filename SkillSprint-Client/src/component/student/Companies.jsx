@@ -6,7 +6,7 @@ function Companies() {
   return (
     <section className="my-10 md:my-16">
       <div className="top-heading">
-        <h2 className="text-center text-xl font-semibold">
+        <h2 className="text-center text-xl md:text-3xl font-semibold">
           Empowering Learners from the World’s Leading Companies
         </h2>
         <div className="divider divider-primary w-1/4 mx-auto"></div>
@@ -14,7 +14,7 @@ function Companies() {
       <Marquee speed={50} gradient={false}>
         <div className="bottom-area flex overflow-hidden gap-6 items-center justify-center md:gap-16 md:mt-10 mt-5">
           <img
-            className="w-36 cursor-pointer mx-3"
+            className="w-36 cursor-pointer "
             src={assets.microsoft_logo}
             alt="microsoft logo"
           />
@@ -44,7 +44,7 @@ function Companies() {
             alt="udemy logo"
           />
           <img
-            className="w-36 cursor-pointer mx-3"
+            className="w-36 cursor-pointer mr-10"
             src={assets.paypal_logo}
             alt="paypal logo"
           />
