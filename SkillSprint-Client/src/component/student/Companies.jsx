@@ -6,7 +6,7 @@ function Companies() {
   return (
     <section className="my-10 md:my-16">
       <div className="top-heading">
-        <h2 className="text-center text-xl md:text-3xl font-semibold">
+        <h2 className="text-center text-purple-950 text-xl md:text-3xl font-semibold">
           Empowering Learners from the World’s Leading Companies
         </h2>
         <div className="divider divider-primary w-1/4 mx-auto"></div>

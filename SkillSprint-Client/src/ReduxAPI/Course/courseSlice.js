@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { assets } from "../../assets/assets";
-const fetchCourses = createAsyncThunk(
+import { dummyCourses } from "../../assets/assets";
+
+export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
-    async()=>{
-      // return the assets dummy content
-      return assets.dummyCourses
-    }
-)
+  async () => {
+    return dummyCourses;
+  }
+);
 
 const coursesSlice = createSlice({
   name: "courses",
