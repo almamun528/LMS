@@ -1,3 +1,4 @@
+import Footer from "../../component/Footer/Footer";
 import Slider from "../../component/Slider/Slider";
 import WhyChooseUs from "../../component/StaticSection/WhyChooseUs";
 import Companies from "../../component/student/Companies";
@@ -16,6 +17,7 @@ const Home = () => {
       <Testimonials/>
    
       <WhyChooseUs/>
+    <Footer/>
     </section>
   );
 };
