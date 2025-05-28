@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CourseCard from "./CourseCard";
 function CoursesSection() {
   return (
     <section className="my-10">
@@ -11,7 +12,10 @@ function CoursesSection() {
         </p>
       </div>
       {/* content area Starts */}
-
+          {/* <CourseCard/> */}
+          <main>
+            
+          </main>
       {/* content area Ends */}
       <div className="bottom-area text-center my-10">
         <Link
