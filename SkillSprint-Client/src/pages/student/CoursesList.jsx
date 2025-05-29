@@ -42,7 +42,9 @@ function CoursesList() {
           </span>
         </div>
         {/* search bar component */}
-        <SearchBar data={input} />
+        <div className="hidden md:block">
+          <SearchBar data={input} />
+        </div>
       </main>
       {input && (
         <div className="flex gap-3 my-2">
@@ -69,7 +71,10 @@ function CoursesList() {
         {/* if course are not published */}
         {!loading && !error && filteredCourse?.length === 0 && (
           <h4 className="text-xl md:text-2xl text-center my-3 col-span-full">
-            No course is published about <span className="text-purple-600 capitalize font-semibold">{input}</span>
+            No course is published about{" "}
+            <span className="text-purple-600 capitalize font-semibold">
+              {input}
+            </span>
           </h4>
         )}
       </div>

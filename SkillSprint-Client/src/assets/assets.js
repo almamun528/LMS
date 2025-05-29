@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import hat from "./hat.png";
-import creative from './creativity.png'
+import creative from "./creativity.png";
 import facebook from "./socialMedia/facebook.png";
 import linkedin from "./socialMedia/linkedin.png";
 import instagram from "./socialMedia/instagram.png";
@@ -55,9 +55,9 @@ import profile_img from "./profile_img.png";
 import profile_img2 from "./profile_img2.png";
 import profile_img3 from "./profile_img3.png";
 import lesson_icon from "./lesson_icon.svg";
-import creative_Brain from './creative-brain.png'
-import career_path from './career-path.png';
-import target from './target.png'
+import creative_Brain from "./creative-brain.png";
+import career_path from "./career-path.png";
+import target from "./target.png";
 
 // export all images
 export const assets = {

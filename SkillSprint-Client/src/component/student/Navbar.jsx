@@ -9,7 +9,7 @@ const Navbar = () => {
   const isLoginRoute = useMatch("/login");
   const navigate = useNavigate();
   const { user, isEducator } = useUser(); //get the user from hook
-
+  const isCourseListPage = useMatch("/course-list/*");
   // dispatch (send action redux store to call the log-out function to make current user null )
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -88,7 +88,9 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-2">
-          <SearchBar />
+          <span className={`${isCourseListPage ? "md:hidden " : ""}`}>
+            <SearchBar />
+          </span>
           <div className="dropdown dropdown-end">
             <button
               tabIndex={0}
