@@ -29,7 +29,7 @@ const CourseDetails = () => {
       {/* left area Starts*/}
       <div className="max-w-xl z-10 text-gray-500">
         <h1 className="text-purple-900 font-semibold text-xl md:text-3xl my-2">
-          {courseData && courseData?.courseTitle}
+          { courseData?.courseTitle}
         </h1>
 
         <p

@@ -16,6 +16,7 @@ import SignUp from "./component/events/SignUp";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { authObserver } from "./ReduxAPI/Auth/authObserver";
+import RedirectIfAuth from "./component/RedirectIfAuth/RedirectIfAuth";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,8 +32,22 @@ const App = () => {
     <section>
       {!isEducatorRoute && <Navbar />}
       <Routes>
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/sign-up"
+          element={
+            <RedirectIfAuth>
+              <SignUp />
+            </RedirectIfAuth>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RedirectIfAuth>
+              <Login />
+            </RedirectIfAuth>
+          }
+        />
         <Route path="/" element={<Home />} />
         <Route path="/course-list" element={<CoursesList />} />
         <Route path="/course-list/:input" element={<CoursesList />} />
