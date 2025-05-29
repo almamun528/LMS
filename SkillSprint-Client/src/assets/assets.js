@@ -811,3 +811,80 @@ export const dummyCourses = [
     courseThumbnail: "https://img.youtube.com/vi/WbV3zRgpw_E/maxresdefault.jpg",
   },
 ];
+export const blogPosts = [
+  {
+    title: "Master the Art of Self-Learning in the Digital Age",
+    subHeading: "Why self-paced learning is the future of education",
+    description:
+      "The internet has revolutionized education by making knowledge more accessible than ever before. With the rise of online courses, YouTube tutorials, podcasts, and e-books, individuals now have the power to chart their own learning journey. This blog dives into the benefits of self-paced learning, such as flexibility, cost-effectiveness, and personalized progress. It also covers techniques for setting goals, avoiding procrastination, and using digital tools like note-taking apps and time trackers to stay on track.",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+  },
+  {
+    title: "Top 10 In-Demand Tech Skills in 2025",
+    subHeading: "What skills employers are looking for in the near future",
+    description:
+      "The job market is evolving rapidly, and employers are on the lookout for talent with skills that align with digital transformation. From AI and machine learning to cybersecurity and cloud computing, this blog explores the ten most valuable skills you should learn in 2025. It includes real-world use cases, job roles, expected salaries, and links to resources to start learning. Whether you're switching careers or upskilling, this guide will help you plan your path.",
+    image:
+      "https://images.unsplash.com/photo-1611348586840-ea9872d33411?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "How to Build Your First Project in Web Development",
+    subHeading: "A beginner's roadmap to full-stack development",
+    description:
+      "Getting hands-on is the best way to learn web development. This blog provides a beginner-friendly walkthrough to build your first web application from scratch. Learn how to structure your project folder, use HTML/CSS for layout and styling, add interactivity with JavaScript, and connect a backend with Node.js and MongoDB. It also covers GitHub version control and deployment tips. By the end, you'll not only build a project—you'll gain confidence and direction.",
+    image:
+      "https://images.unsplash.com/photo-1517309561013-16f6e4020305?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rmlyc3QlMjBQcm9qZWN0JTIwaW4lMjBXZWIlMjBEZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    title: "Freelancing vs Full-Time Jobs: Which is Right for You?",
+    subHeading: "Evaluate the pros and cons of each career path",
+    description:
+      "Not sure whether to freelance or go full-time? This blog compares both work styles in terms of freedom, income, skill growth, work-life balance, and long-term sustainability. It includes real-life examples, tips from professionals who’ve done both, and guidance on how to get started on freelancing platforms. Ideal for students and career switchers who want to explore different income streams and working lifestyles.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692",
+  },
+  {
+    title: "Learning Programming: What Language Should You Start With?",
+    subHeading:
+      "Beginner-friendly guide to choosing your first programming language",
+    description:
+      "Choosing a programming language can be overwhelming. This article breaks down the strengths and use cases of popular beginner-friendly languages like Python, JavaScript, and C#. We discuss job opportunities, community support, difficulty levels, and the types of applications you can build with each language. Whether you're interested in web development, game design, AI, or mobile apps, this guide will help you pick your best starting point.",
+    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+  },
+  {
+    title: "How to Stay Consistent in Online Learning",
+    subHeading: "Habits and hacks to avoid burnout and distraction",
+    description:
+      "Many learners start strong but lose momentum in online courses. This blog teaches you how to create a learning environment, build micro-habits, and stay motivated. It also explains techniques like Pomodoro, habit stacking, journaling progress, and using accountability systems such as learning buddies or Discord communities. If you’ve ever struggled with consistency, this blog will give you a productivity boost.",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+  },
+  {
+    title: "Build a Career in Digital Marketing from Scratch",
+    subHeading: "The complete beginner's guide to becoming a digital marketer",
+    description:
+      "Digital marketing is one of the most accessible and in-demand career paths today. In this blog, you'll learn about key areas such as SEO, SEM, email marketing, content creation, and social media strategy. We also show you how to create a personal brand, build a portfolio with dummy projects or internships, and get certified with free or low-cost programs. Perfect for creatives, writers, and business-minded individuals entering the tech world.",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786",
+  },
+  {
+    title: "What is an LMS? And Why You Should Use One",
+    subHeading: "Understanding the power of Learning Management Systems",
+    description:
+      "A Learning Management System (LMS) is more than just a course player—it’s a full ecosystem for managing online education. This blog explains what an LMS is, how it works, and why it's a must-have for structured learning. We explore key features like progress tracking, certification, quizzes, and instructor-led classes. If you're a learner or planning to teach online, this article will help you understand why LMS platforms are essential for success.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+  },
+  {
+    title: "Career Paths for Non-Coders in the Tech Industry",
+    subHeading:
+      "Explore high-paying roles that don’t require programming skills",
+    description:
+      "You don’t have to be a coder to thrive in tech. This blog highlights roles like UX/UI design, product management, digital marketing, QA testing, technical writing, and customer success. We explain what each role entails, the skills required, and how to break into them. Ideal for people with backgrounds in humanities, arts, or business who want to transition into the tech industry.",
+    image:
+      "https://images.unsplash.com/photo-1459180129673-eefb56f79b45?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q2FyZWVyfGVufDB8fDB8fHww",
+  },
+  {
+    title: "The Power of Peer Learning in Online Education",
+    subHeading: "Why learning with others can accelerate your success",
+    description:
+      "Online learning can feel isolating, but peer interaction changes everything. This blog discusses the benefits of learning in groups—whether through forums, live sessions, or study clubs. It provides practical ways to form or join learning communities and how to use social accountability to boost retention, engagement, and success. A must-read for online learners who want to stay inspired and connected.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
+  },
+];

@@ -7,7 +7,8 @@ import Copyright from "./Copyright";
 function Footer() {
   return (
     <>
-      <section className=" border-purple-900 flex items-center justify-between px-10 py-10 bg-gray-50 border-b">
+      <section
+        className=" border-purple-900 flex items-center justify-between px-10 py-10 bg-gray-50 border-b">
         <div className="left-side">
           <img className="" src={Logo} alt="" />
           <p>
@@ -21,7 +22,6 @@ function Footer() {
           <h2 className="font-bold">Important Links</h2>
           <ul>
             <li>
-              {" "}
               <Link className="hover:text-purple-700">Home</Link>
             </li>
             <li>
@@ -31,7 +31,9 @@ function Footer() {
               <Link className="hover:text-purple-700">About Us</Link>
             </li>
             <li>
-              <Link className="hover:text-purple-700">Contact Us</Link>
+              <Link to={"/login"} className="hover:text-purple-700">
+                Login
+              </Link>
             </li>
             <li>
               <Link className="hover:text-purple-700">Become a Educator</Link>

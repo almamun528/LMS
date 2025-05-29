@@ -1,21 +1,11 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchCourses } from "../../ReduxAPI/Course/courseSlice";
 import CourseCard from "./CourseCard";
 import { assets } from "../../assets/assets";
+import useCourses from "../../hook/useCourses";
 
 function CoursesSection() {
-  const dispatch = useDispatch();
-
-  // course comes state from redux
-  const { courses, loading, error } = useSelector((state) => state.courses);
-
-  useEffect(() => {
-    // fetch all courses from redux 
-    dispatch(fetchCourses());
-  }, [dispatch]);
-  
+  //!courses data come from custom hook which return redux state
+  const { courses, loading, error } = useCourses();
 
   return (
     <section className="my-20">
