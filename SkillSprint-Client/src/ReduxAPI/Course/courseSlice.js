@@ -19,7 +19,11 @@ export const calculateRating = (course) => {
   });
   return totalRating / course.courseRatings.length;
 };
-
+// function to calculate chapter time
+// const calculateChapterTime=(chapter)=>{
+//   let time =0;
+//   chapter.chapterContent.map()
+// }
 const coursesSlice = createSlice({
   name: "courses",
   initialState: {

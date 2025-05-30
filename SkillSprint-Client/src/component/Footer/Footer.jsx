@@ -25,7 +25,7 @@ function Footer() {
               <Link className="hover:text-purple-700">Home</Link>
             </li>
             <li>
-              <Link className="hover:text-purple-700">Course List</Link>
+              <Link to={'/course-list'} className="hover:text-purple-700">Course List</Link>
             </li>
             <li>
               <Link className="hover:text-purple-700">About Us</Link>
@@ -36,7 +36,7 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-purple-700">Become a Educator</Link>
+              <Link to={'/blog'} className="hover:text-purple-700">Blogs</Link>
             </li>
           </ul>
         </div>

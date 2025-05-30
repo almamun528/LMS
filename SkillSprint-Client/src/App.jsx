@@ -17,6 +17,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { authObserver } from "./ReduxAPI/Auth/authObserver";
 import RedirectIfAuth from "./component/RedirectIfAuth/RedirectIfAuth";
+import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./component/Blogs/BlogDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,6 +51,8 @@ const App = () => {
           }
         />
         <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/course-list" element={<CoursesList />} />
         <Route path="/course-list/:input" element={<CoursesList />} />
         <Route path="/course/:id" element={<CourseDetails />} />
