@@ -4,6 +4,10 @@ import { fetchBlogs } from "../../ReduxAPI/Blog/blogSlice";
 import BlogCard from "../../component/Blogs/BlogCard";
 import { Link } from "react-router-dom";
 import blogBannerImage from '../../assets/Blogs/BlogBanner.avif'
+import Footer from "../../component/Footer/Footer";
+
+
+
 function Blog() {
   const dispatch = useDispatch();
   const { blogs, loading, error } = useSelector((state) => state.blogs);
@@ -68,6 +72,11 @@ function Blog() {
           <BlogCard key={blog?.id} blog={blog} />
         ))}
       </main>
+      {/* footer  */}
+
+      <footer className="mt-10">
+        <Footer />
+      </footer>
     </section>
   );
 }

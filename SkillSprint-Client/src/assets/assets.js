@@ -69,6 +69,7 @@ import BlogNumber6 from './Blogs/BlogNumber6.jpeg'
 import BlogNumber7 from './Blogs/BlogNumber7.jpeg'
 import BlogNumber8 from './Blogs/BlogNumber8.jpeg'
 import BlogNumber9 from './Blogs/BlogNumber9.avif'
+import BlogWriter from './Blogs/BlogWritter.jpg'
 
 // export all images
 export const assets = {
@@ -86,6 +87,7 @@ export const assets = {
   Digital_Marketing_Png,
   Online_course,
   Stand_up_Png,
+  BlogWriter,
   sketch,
   microsoft_logo,
   udemy_logo,

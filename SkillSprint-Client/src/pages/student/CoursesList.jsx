@@ -4,6 +4,7 @@ import CourseCard from "../../component/student/CourseCard";
 import useCourses from "../../hook/useCourses";
 import { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
+import Footer from "../../component/Footer/Footer";
 
 function CoursesList() {
   const navigate = useNavigate();
@@ -78,6 +79,10 @@ function CoursesList() {
           </h4>
         )}
       </div>
+
+      <footer className="mt-10">
+        <Footer />
+      </footer>
     </section>
   );
 }

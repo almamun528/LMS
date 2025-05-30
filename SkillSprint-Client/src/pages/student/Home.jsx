@@ -1,3 +1,4 @@
+import BlogFeature from "../../component/Blogs/BlogFeature";
 import Footer from "../../component/Footer/Footer";
 import Slider from "../../component/Slider/Slider";
 import WhyChooseUs from "../../component/StaticSection/WhyChooseUs";
@@ -10,14 +11,15 @@ const Home = () => {
     <section>
       <Slider />
       <br />
-      <Companies/>
- 
+      <Companies />
       <CoursesSection />
-   
-      <Testimonials/>
-   
-      <WhyChooseUs/>
-    <Footer/>
+      <Testimonials />
+      <WhyChooseUs />
+      <BlogFeature />
+
+      <footer className="mt-10">
+        <Footer />
+      </footer>
     </section>
   );
 };

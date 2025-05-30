@@ -5,6 +5,7 @@ import { fetchBlogs } from "../../ReduxAPI/Blog/blogSlice";
 import BlogCard from "./BlogCard";
 import useCourses from "../../hook/useCourses";
 import CourseCard from "../student/CourseCard";
+import Footer from "../Footer/Footer";
 
 function BlogDetails() {
   const { id } = useParams();
@@ -67,12 +68,17 @@ function BlogDetails() {
       </div>
       <div className="text-center">
         <Link
+          onClick={() => scrollTo(0, 0)}
           className="mt-2  place-items-center btn  hover:bg-purple-950 hover:text-white border-purple-900 px-10 py-3 rounded"
           to={"/blog"}
         >
           All Blogs
         </Link>
       </div>
+
+      <footer className="mt-10">
+        <Footer />
+      </footer>
     </section>
   );
 }
