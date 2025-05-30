@@ -27,7 +27,7 @@ function BlogDetails() {
   if (loading) return <h2> Loading...</h2>;
   if (error) return <h2> {error}</h2>;
   return (
-    <section className="my-3 ">
+    <section className="mt-3 ">
       <div className="content-area p-2">
         <h2 className="text-xl font-extrabold md:text-2xl text-purple-950">
           {blogData?.title}

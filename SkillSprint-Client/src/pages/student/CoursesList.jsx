@@ -31,7 +31,7 @@ function CoursesList() {
   if (loading) return <h2>Loading....</h2>;
   if (error) return <h2>error{error}</h2>;
   return (
-    <section className="my-5">
+    <section className="mt-5">
       <main className="flex items-center justify-between">
         <div className="left-side">
           <h1 className="text-xl md:text-3xl my-2">Course List</h1>
