@@ -121,10 +121,47 @@ const CourseDetails = () => {
             ))}
           </div>
         </div>
+        {/* course Description section  */}
+        <div className="mt-3">
+          <h3 className="text-xl md:text-2xl lg:text-3xl text-gray-800">
+            Course Description
+          </h3>
+          <p
+            dangerouslySetInnerHTML={{ __html: courseData?.courseDescription }}
+            className="pt-3"
+          ></p>
+        </div>
       </div>
 
-      {/* Right Area Start */}
-      <div></div>
+      {/* Right Area Start------------- */}
+      <div className="z-10 shadow-2xl rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]">
+        <img src={courseData?.courseThumbnail} alt="" />
+        <div className="p-5">
+          <div className="flex gap-2">
+            <img
+              className="w-3.5"
+              src={assets.time_left_clock_icon}
+              alt="time icon"
+            />
+            <p className="text-purple-800">
+              <span className="font-medium">4 days left at this price !</span>
+            </p>
+          </div>
+          {/*  */}
+          <div className="flex gap-3 items-center pt-2">
+            <p className="text-gray-800 md:text-3xl text-xl font-semibold ">
+              ${" "}
+              {(
+                courseData?.coursePrice -
+                (courseData?.discount * courseData?.coursePrice) / 100
+              ).toFixed(2)}{" "}
+            </p>
+            <p className="md:text-lg text-gray-500 line-through">${courseData?.coursePrice}</p>
+            <p className="text-lg text-gray-500">{courseData?.discount}%off</p>
+          </div>
+          {/*  */}
+        </div>
+      </div>
     </section>
   );
 };
