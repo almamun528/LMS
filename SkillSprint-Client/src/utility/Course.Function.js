@@ -1,3 +1,7 @@
+// !==================Function for course related==================================
+
+
+
 import humanizeDuration from "humanize-duration";
 
 
