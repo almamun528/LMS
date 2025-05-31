@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useCourses from "../../hook/useCourses";
 import { assets } from "../../assets/assets";
+import YouTube from "react-youtube";
 import {
   calculateChapterTime,
   calculateCourseDuration,
@@ -15,7 +16,7 @@ const CourseDetails = () => {
   const [openSections, setOpenSections] = useState({});
   const [courseData, setCourseData] = useState();
   const { courses, loading, error } = useCourses();
-  const { isAlreadyEnrolled } = useUser();
+  const { isAlreadyEnrolled, setPlayerData, playerData } = useUser();
   const fetchCourseData = () => {
     const findCourse = courses.find((course) => course?._id === id);
     setCourseData(findCourse);
@@ -45,15 +46,15 @@ const CourseDetails = () => {
         <p
           className="pt-4 md:text-base text-sm"
           dangerouslySetInnerHTML={{
-            __html: courseData?.courseDescription.slice(0, 200),
+            __html: courseData?.courseDescription?.slice(0, 200),
           }}
         ></p>
         {/* course rating and reviews */}
         <p>Need to add course rating here</p>
         <p className="text-purple-800 my-2">
           {" "}
-          Enrolled : {courseData?.enrolledStudents.length}
-          {courseData?.enrolledStudents.length > 1 ? " students" : " student"}
+          Enrolled : {courseData?.enrolledStudents?.length}
+          {courseData?.enrolledStudents?.length > 1 ? " students" : " student"}
         </p>
         {/*  */}
         <p>Course by Instructor Name : Mamun need to added dynamically </p>
@@ -62,7 +63,7 @@ const CourseDetails = () => {
             Course Structure
           </h2>
           <div className="pt-5">
-            {courseData?.courseContent.map((chapter, index) => (
+            {courseData?.courseContent?.map((chapter, index) => (
               <div
                 className="border border-purple-900 bg-white mb-2 rounded"
                 key={index}
@@ -105,9 +106,18 @@ const CourseDetails = () => {
                           <p>{lecture?.lectureTitle}</p>
                           <div className="flex gap-2">
                             {lecture?.isPreviewFree && (
-                              <p className="text-purple-900 cursor-pointer">
+                              <button
+                                onClick={() =>
+                                  setPlayerData({
+                                    videoId: lecture.lectureUrl
+                                      .split("/")
+                                      .pop(),
+                                  })
+                                }
+                                className="text-purple-900 cursor-pointer"
+                              >
                                 Preview
-                              </p>
+                              </button>
                             )}
                             <p>
                               {humanizeDuration(
@@ -139,7 +149,16 @@ const CourseDetails = () => {
 
       {/* Right Area Start------------- */}
       <div className="z-10 shadow-2xl rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]">
-        <img src={courseData?.courseThumbnail} alt="" />
+        {playerData ? (
+          <YouTube
+            videoId={playerData?.videoId}
+            opts={{ playerVars: { autoplay: 1 } }}
+            iframeClassName="w-full aspect-video"
+          />
+        ) : (
+          <img src={courseData?.courseThumbnail} alt="" />
+        )}
+
         <div className="p-5">
           <div className="flex gap-2">
             <img
@@ -193,8 +212,10 @@ const CourseDetails = () => {
           </button>
           {/* bottom description */}
           <div>
-            <p className="text-sm md:text-xl text-purple-950 my-1">What's in the course?</p>
-            <ul className="list-inside list-disc leading-6">
+            <p className="text-sm md:text-xl text-purple-950 my-1">
+              What's in the course?
+            </p>
+            <ul className="list-inside list-disc leading-6 text-gray-500">
               <li>Lifetime access with free update</li>
               <li>certification after complete</li>
               <li>Job Placement support and guide</li>
