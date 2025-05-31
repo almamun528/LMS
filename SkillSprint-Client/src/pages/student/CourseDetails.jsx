@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useCourses from "../../hook/useCourses";
-
 import { assets } from "../../assets/assets";
-import { calculateChapterTime } from "../../utility/Course.Function";
+import {
+  calculateChapterTime,
+  calculateCourseDuration,
+  calculateNoOfLectures,
+} from "../../utility/Course.Function";
 import humanizeDuration from "humanize-duration";
+import useUser from "../../hook/useUser";
 
 const CourseDetails = () => {
   const { id } = useParams();
   const [openSections, setOpenSections] = useState({});
   const [courseData, setCourseData] = useState();
   const { courses, loading, error } = useCourses();
-
+  const { isAlreadyEnrolled } = useUser();
   const fetchCourseData = () => {
     const findCourse = courses.find((course) => course?._id === id);
     setCourseData(findCourse);
@@ -156,10 +160,48 @@ const CourseDetails = () => {
                 (courseData?.discount * courseData?.coursePrice) / 100
               ).toFixed(2)}{" "}
             </p>
-            <p className="md:text-lg text-gray-500 line-through">${courseData?.coursePrice}</p>
+            <p className="md:text-lg text-gray-500 line-through">
+              ${courseData?.coursePrice}
+            </p>
             <p className="text-lg text-gray-500">{courseData?.discount}%off</p>
           </div>
-          {/*  */}
+
+          <div className="flex items-center text-sm md:text-md gap-4 pt-2 md:pt-4 text-gray-500">
+            {/* review and rating  */}
+            <div className="flex gap-2">
+              {" "}
+              <img src={assets.star} alt="star icon" />
+              <img src={assets.star} alt="star icon" />
+              <img src={assets.star} alt="star icon" />
+              <img src={assets.star} alt="star icon" />
+              <p>5</p>
+            </div>
+
+            {/* time duration and icons */}
+            <div className="flex items-center gap-2">
+              <img src={assets.time_clock_icon} alt="time clock icons" />
+              {courseData && <p>{calculateCourseDuration(courseData)}</p>}
+            </div>
+            {/* lesson icons and function */}
+            <div className="flex items-center gap-2">
+              <img src={assets.lesson_icon} alt="lesson icons" />
+              {courseData && <p>{calculateNoOfLectures(courseData)} lessons</p>}
+            </div>
+          </div>
+          <button className="btn w-full my-4 bg-purple-950 text-white hover:bg-purple-900">
+            {isAlreadyEnrolled ? "Already Enrolled" : "Enroll Now"}
+          </button>
+          {/* bottom description */}
+          <div>
+            <p className="text-sm md:text-xl text-purple-950 my-1">What's in the course?</p>
+            <ul className="list-inside list-disc leading-6">
+              <li>Lifetime access with free update</li>
+              <li>certification after complete</li>
+              <li>Job Placement support and guide</li>
+              <li>Downloadable resources and source code.</li>
+              <li>Assignment and Quiz option</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

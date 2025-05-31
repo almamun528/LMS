@@ -1,12 +1,9 @@
 // !==================Function for course related==================================
 
-
-
 import humanizeDuration from "humanize-duration";
 
-
 // function to calculate average rating of course.
- export const  calculateRating = (course) => {
+export const calculateRating = (course) => {
   if (course.courseRatings.length === 0) {
     return 0;
   }
