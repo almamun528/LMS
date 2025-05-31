@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useCourses from "../../hook/useCourses";
-import { calculateRating } from "../../ReduxAPI/Course/courseSlice";
+
 import { assets } from "../../assets/assets";
 
 const CourseDetails = () => {
@@ -21,7 +21,7 @@ const CourseDetails = () => {
   if (loading)
     return <span className="loading loading-spinner loading-xl"></span>;
   if (error) return <h2>Error {error}</h2>;
-  console.log(courseData);
+  
   return (
     <section className="flex md:flex-row flex-col-reverse gap-10 relative items-start justify-between md:px-36 px-8 md;pt-30 pt-20 text-left">
       {/* top area */}

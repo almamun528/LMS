@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
-import { calculateRating } from "../../ReduxAPI/Course/courseSlice";
+import  {calculateRating}  from "../../utility/Course.Function";
+
 
 function CourseCard({ course }) {
   return (
@@ -44,7 +45,7 @@ function CourseCard({ course }) {
           {/* bottom area */}
           <div className="card-actions justify-start">
             <button className="btn bg-purple-950 text-white hover:bg-purple-900">
-            Course  Details
+              Course Details
             </button>
           </div>
         </div>
