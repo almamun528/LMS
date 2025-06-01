@@ -10,6 +10,7 @@ import {
 } from "../../utility/Course.Function";
 import humanizeDuration from "humanize-duration";
 import useUser from "../../hook/useUser";
+import Loading from "../../component/student/Loading";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -26,8 +27,7 @@ const CourseDetails = () => {
       fetchCourseData();
     }
   }, [courses, id]);
-  if (loading)
-    return <span className="loading loading-spinner loading-xl"></span>;
+  if (loading) return <Loading />;
   if (error) return <h2>Error {error}</h2>;
   // !function for toggle
   const toggleSection = (index) => {
