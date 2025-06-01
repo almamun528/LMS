@@ -4,11 +4,13 @@ import { fetchUserEnrollment } from "../../ReduxAPI/EnrolledCourses/enrolledCour
 import { calculateCourseDuration } from "../../utility/Course.Function";
 import Loading from "../../component/student/Loading";
 import { useNavigate } from "react-router-dom";
-
+import { Line } from "rc-progress";
+import Footer from "../../component/Footer/Footer";
 const MyEnrollments = () => {
   const { enrolledCourses, loading, error } = useSelector(
     (state) => state.enrolledCourses
   );
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -63,6 +65,17 @@ const MyEnrollments = () => {
                       <p className="mb-1 max-sm:text-sm">
                         {course?.courseTitle}
                       </p>
+                      <Line
+                        strokeColor="#6B21A8"
+                        strokeWidth={2}
+                        percent={
+                          progressArray[index]
+                            ? (progressArray[index].lectureCompleted * 100) /
+                              progressArray[index].totalLecture
+                            : 0
+                        }
+                        className="bg-gray-300 rounded-full"
+                      />
                     </div>
                   </td>
                   <td className="px-4 py-3 max-sm:hidden">
@@ -93,6 +106,9 @@ const MyEnrollments = () => {
           </tbody>
         </table>
       </div>
+      <footer className="mt-10">
+        <Footer/>
+      </footer>
     </section>
   );
 };
