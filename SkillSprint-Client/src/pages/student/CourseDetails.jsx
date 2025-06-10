@@ -18,6 +18,7 @@ const CourseDetails = () => {
   const [courseData, setCourseData] = useState();
   const { courses, loading, error } = useCourses();
   const { isAlreadyEnrolled, setPlayerData, playerData } = useUser();
+  
   const fetchCourseData = () => {
     const findCourse = courses.find((course) => course?._id === id);
     setCourseData(findCourse);
