@@ -20,7 +20,7 @@ const SideBar = () => {
       id: 3,
     },
     {
-      name: "My Course",
+      name: "Student Enrolled",
       path: "/educator/student-enrolled",
       icon: assets.person_tick_icon,
       id: 4,
@@ -36,7 +36,11 @@ const SideBar = () => {
               end={item?.path === "/educator"}
               key={item?.id}
               className={({ isActive }) =>
-                `flex items-center md:flex-row flex-col md:justify-start justify-center py-3.5 md:px-10 gap-3 ${isActive ?'border-b  border-purple-900 text-purple-700 font-semibold' :''}`
+                `flex items-center md:flex-row flex-col md:justify-start justify-center py-3.5 md:px-10 gap-3 ${
+                  isActive
+                    ? "border-b  border-purple-900 text-purple-700 font-semibold"
+                    : ""
+                }`
               }
             >
               <img src={item?.icon} alt="icon" className="w-6 h-6" />
