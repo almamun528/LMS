@@ -59,22 +59,23 @@ import creative_Brain from "./creative-brain.png";
 import career_path from "./career-path.png";
 import target from "./target.png";
 // Blog Images
-import BlogNumber1 from './Blogs/BlogNumber1.jpeg'
-import BlogNumber2 from './Blogs/BlogNumber2.avif'
-import BlogNumber3 from './Blogs/BlogNumber3.avif'
-import BlogNumber10 from './Blogs/BlogNumber10.jpeg'
-import BlogNumber4 from './Blogs/BlogNumber4.jpeg'
-import BlogNumber5 from './Blogs/BlogNumber5.jpeg'
-import BlogNumber6 from './Blogs/BlogNumber6.jpeg'
-import BlogNumber7 from './Blogs/BlogNumber7.jpeg'
-import BlogNumber8 from './Blogs/BlogNumber8.jpeg'
-import BlogNumber9 from './Blogs/BlogNumber9.avif'
-import BlogWriter from './Blogs/BlogWritter.jpg'
-
+import BlogNumber1 from "./Blogs/BlogNumber1.jpeg";
+import BlogNumber2 from "./Blogs/BlogNumber2.avif";
+import BlogNumber3 from "./Blogs/BlogNumber3.avif";
+import BlogNumber10 from "./Blogs/BlogNumber10.jpeg";
+import BlogNumber4 from "./Blogs/BlogNumber4.jpeg";
+import BlogNumber5 from "./Blogs/BlogNumber5.jpeg";
+import BlogNumber6 from "./Blogs/BlogNumber6.jpeg";
+import BlogNumber7 from "./Blogs/BlogNumber7.jpeg";
+import BlogNumber8 from "./Blogs/BlogNumber8.jpeg";
+import BlogNumber9 from "./Blogs/BlogNumber9.avif";
+import BlogWriter from "./Blogs/BlogWritter.jpg";
+import user_icon2 from "./user.png";
 // export all images
 export const assets = {
   logo,
   creative,
+  user_icon2,
   facebook,
   creative_Brain,
   instagram,
@@ -144,7 +145,6 @@ export const assets = {
   BlogNumber8,
   BlogNumber9,
   BlogNumber10,
-  
 };
 
 export const dummyEducatorData = {

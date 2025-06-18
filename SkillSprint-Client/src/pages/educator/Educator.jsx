@@ -1,10 +1,11 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import MenuNav from './MenuNav'
 
 const Educator = () => {
   return (
     <section>
-     <h2>Educator page </h2>
+     <MenuNav/>
      <Outlet/>
     </section>
   )
