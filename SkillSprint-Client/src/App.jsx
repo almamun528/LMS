@@ -19,6 +19,10 @@ import { authObserver } from "./ReduxAPI/Auth/authObserver";
 import RedirectIfAuth from "./component/RedirectIfAuth/RedirectIfAuth";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./component/Blogs/BlogDetails";
+import "quill/dist/quill.snow.css";
+
+
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -73,3 +77,4 @@ const App = () => {
 };
 
 export default App;
+// 6h 17m

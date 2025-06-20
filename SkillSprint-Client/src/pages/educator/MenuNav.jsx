@@ -13,7 +13,7 @@ function MenuNav() {
     dispatch(logOutUser()); //call the logout function
   };
   const educatorData = dummyEducatorData;
-console.log(user?.user)
+
   const menuItems = (
     <>
       {user ? (
