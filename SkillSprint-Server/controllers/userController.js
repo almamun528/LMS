@@ -32,7 +32,7 @@ export const getAllUsers = async (req, res) => {
 
 // ?------------- Get a single User by ID-----------------
 
-export const getUserId = async (req, res) => {
+export const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id).populate("enrolledCourses");
