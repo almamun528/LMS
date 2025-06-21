@@ -71,8 +71,40 @@ import BlogNumber8 from "./Blogs/BlogNumber8.jpeg";
 import BlogNumber9 from "./Blogs/BlogNumber9.avif";
 import BlogWriter from "./Blogs/BlogWritter.jpg";
 import user_icon2 from "./user.png";
+
+// About us page's images
+import AboutUsBanner from "./AboutUS/AboutUsBanner.jpg";
+
+import trophy_1 from "./AboutUS/Trophy1.png";
+import trophy_2 from "./AboutUS/trophy2.png";
+import trophy_3 from "./AboutUS/Trophy3.png";
+
+import laptopIcon from "./AboutUS/Laptop.png";
+import studentIcon from "./AboutUS/Students.png";
+import badgeIcon from "./AboutUS/badge.png";
+import internetIcon from "./AboutUS/internet.png";
+
+import computerImage from "./AboutUS/computerAboutUs.jpeg";
+
+import aboutUsImg_1 from "./AboutUS/About-Us-1.webp";
+import aboutUsImg_2 from "./AboutUS/About-Us-2.jpeg";
+import aboutUsImg_3 from "./AboutUS/About-Us-3.jpeg";
+
 // export all images
 export const assets = {
+  AboutUsBanner,
+  trophy_1,
+  trophy_2,
+  trophy_3,
+  laptopIcon,
+  studentIcon,
+  badgeIcon,
+  internetIcon,
+  computerImage,
+  aboutUsImg_2,
+  aboutUsImg_1,
+  aboutUsImg_3,
+
   logo,
   creative,
   user_icon2,

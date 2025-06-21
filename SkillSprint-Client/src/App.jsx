@@ -20,6 +20,7 @@ import RedirectIfAuth from "./component/RedirectIfAuth/RedirectIfAuth";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./component/Blogs/BlogDetails";
 import "quill/dist/quill.snow.css";
+import AboutUs from "./component/About Us/AboutUs";
 
 
 
@@ -56,6 +57,7 @@ const App = () => {
         />
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<AboutUs/>} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/course-list" element={<CoursesList />} />
         <Route path="/course-list/:input" element={<CoursesList />} />
@@ -77,4 +79,4 @@ const App = () => {
 };
 
 export default App;
-// 6h 17m
+// 6h 51m
