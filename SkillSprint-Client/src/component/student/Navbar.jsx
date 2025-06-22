@@ -17,10 +17,13 @@ const Navbar = () => {
     dispatch(logOutUser()); //call the logout function
     navigate("/");
   };
-
+  // taking name of user's from email.
+  const userEmail = user?.email;
+  const atIndex = userEmail.indexOf("@");
+  const nameBeforeAt = userEmail.slice(0, atIndex);
   const MenuItems = (
     <>
-      {user && <p className="my-2 text-purple-900">Hi! {user?.email} </p>}
+      {user && <p className="my-2 text-purple-900 capitalize">Hi! {nameBeforeAt} </p>}
       {user && (
         <button className="text-left  hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold">
           Profile

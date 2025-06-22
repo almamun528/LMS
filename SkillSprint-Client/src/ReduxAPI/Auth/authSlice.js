@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
+  // updateProfile, || currently we are handle user's info into mongoDB
   GoogleAuthProvider,
 } from "firebase/auth";
 
@@ -16,7 +16,7 @@ const googleProvider = new GoogleAuthProvider(); //for google login
 
 //! ========== Thunks ========== //
 
-// Register user with email and password
+//? Register user with email and password
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async ({ email, password }) => {
@@ -31,7 +31,7 @@ export const registerUser = createAsyncThunk(
     };
   }
 );
-// Login user with email and password
+//? Login user with email and password
 export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async ({ email, password }) => {
@@ -46,7 +46,7 @@ export const loginUser = createAsyncThunk(
     };
   }
 );
-// Login user with google account
+//!  Login user with google account
 export const googleLogin = createAsyncThunk("auth/googleLogin", async () => {
   const result = await signInWithPopup(auth, googleProvider);
   const user = result.user;
@@ -58,7 +58,7 @@ export const googleLogin = createAsyncThunk("auth/googleLogin", async () => {
     emailVerified: user.emailVerified,
   };
 });
-// Logout user
+// ? Logout user
 export const logOutUser = createAsyncThunk("auth/logOutUser", async () => {
   await signOut(auth);
 });
