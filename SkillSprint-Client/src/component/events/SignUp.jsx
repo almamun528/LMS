@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { IoIosEye } from "react-icons/io";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import axiosInstance from "../../AxiosApi/axiosInstance";
+
 function SignUp() {
   const [show, setShow] = useState(true);
   const dispatch = useDispatch();
@@ -19,23 +21,57 @@ function SignUp() {
   const onSubmit = (data) => {
     dispatch(registerUser({ email: data.email, password: data.password }))
       .unwrap()
-      .then((result) => {
+      .then(async (result) => {
+        console.log(
+          "Result is--- ",
+          result,
+          " users email---> ",
+          result?.email,
+          " uid---> ",
+          result?.uid
+        );
         if (result) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${result?.email} Is Registered`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          //! Call Express Backend APis to save user's info
+          try {
+            await axiosInstance.post("/api/users", {
+              uid: result.uid, // ✅ required for _id
+              email: result.email,
+              name: data.name || "Anonymous",
+            });
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: `${result?.email} is registered`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+
+            navigate("/");
+          } catch (err) {
+            console.error("Backend save error:", err.message);
+            alert("Failed to save user to backend");
+          }
         }
       })
       .catch((err) => {
-        alert(err?.message);
-        console.log("registration failed", err.message);
+        if (err.code == "auth/email-already-in-use") {
+          Swal.fire({
+            icon: "error",
+            title: "Registration failed",
+            text: "This email is already used",
+          });
+          console.log("Registration failed", err.message);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Registration failed",
+            text: `${err?.message}`,
+          });
+        }
       });
   };
+
   return (
     <section>
       <div className="hero bg-base-200 min-h-screen">

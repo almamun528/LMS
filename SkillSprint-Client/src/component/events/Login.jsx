@@ -40,6 +40,12 @@ function Login() {
             title: "Oops...",
             text: "The provided credentials are invalid",
           });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${err?.message}`,
+          });
         }
       });
     // password Field is shown or not
@@ -116,7 +122,6 @@ function Login() {
           </div>
         </div>
       </div>
-    
     </section>
   );
 }

@@ -4,18 +4,34 @@ import User from "../models/User.js";
 
 export const createUser = async (req, res) => {
   try {
-    const { _id, name, email, imageUrl } = req.body;
-    // check id user is already Exist
-    const existingUser = await User.findById(_id);
-    if (existingUser) {
-      return res.status((400).json({ message: "User is already exist" }));
+    // ✅ Pull the actual fields from body
+    const { uid, name, email, imageUrl } = req.body;
+
+    // ✅ Check all required fields
+    if (!uid || !name || !email) {
+      return res.status(400).json({ message: "Missing required fields" });
     }
-    const newUser = new User({ _id, name, email, imageUrl });
+
+    // ✅ Check if user already exists by _id (using Firebase UID as MongoDB _id)
+    const existingUser = await User.findById(uid);
+    if (existingUser) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+
+    // ✅ Save new user
+    const newUser = new User({
+      _id: uid,
+      name,
+      email,
+      imageUrl,
+    });
+
     await newUser.save();
 
     res.status(201).json(newUser);
   } catch (error) {
-    res.status(500).json({ message: "Server Error", error });
+    console.error("Server error:", error);
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
 

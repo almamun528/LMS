@@ -26,6 +26,10 @@ import AboutUs from "./component/About Us/AboutUs";
 
 
 const App = () => {
+
+
+
+  
   const dispatch = useDispatch();
   //!User Observer
   useEffect(() => {
@@ -34,6 +38,12 @@ const App = () => {
       unsubscribe();
     };
   }, [dispatch]);
+
+
+
+
+
+
   const isEducatorRoute = useMatch("/educator/*"); //is the user belongs from tutor
   return (
     <section>

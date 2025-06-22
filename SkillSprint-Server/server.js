@@ -8,16 +8,19 @@ const PORT = process.env.PORT || 3000;
 
 // Initializer Express
 const app = express();
-
+app.use(express.json());
 // Connect to Database
 await connectDB();
 
 // middlewares
-app.use(cors());
-
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 //! ___________________________________________Route___________________________________________________________
-
 
 app.use("/api/users", userRoutes);
 
