@@ -48,8 +48,6 @@ const UsersProfile = () => {
       </main>
 
       {/* enrolled courses will shown here */}
-
-      
     </section>
   );
 };

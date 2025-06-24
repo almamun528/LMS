@@ -5,11 +5,15 @@ import useUser from "../../hook/useUser";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../ReduxAPI/Auth/authSlice";
 import { assets } from "../../assets/assets";
+import useIsAdmin from "../../hook/useIsAdmin";
+import useIsEducator from "../../hook/useIsEducator";
 
 const Navbar = () => {
   const isLoginRoute = useMatch("/login");
   const navigate = useNavigate();
-  const { user, isEducator } = useUser(); //get the user from hook
+  const isAdmin = useIsAdmin();
+  const { user } = useUser(); //get the user from hook
+  const isEducator = useIsEducator();
   const isCourseListPage = useMatch("/course-list/*");
   // dispatch (send action redux store to call the log-out function to make current user null )
   const dispatch = useDispatch();
@@ -17,6 +21,7 @@ const Navbar = () => {
     dispatch(logOutUser()); //call the logout function
     navigate("/");
   };
+
   // taking name of user's from email.
   const userEmail = user?.email;
   const atIndex = userEmail?.indexOf("@");
@@ -34,9 +39,20 @@ const Navbar = () => {
       {user && !isEducator && (
         <Link
           to="/my-enrollments"
-          className="text-left  hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+          className={`text-left 
+           hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold ${
+             isAdmin ? "hidden" : "block"
+           }`}
         >
           My Enrollment
+        </Link>
+      )}
+      {isAdmin && (
+        <Link
+          to="/admin/all-users"
+          className="text-left  hover:bg-purple-950 hover:text-white hover:cursor-pointer p-1 font-semibold"
+        >
+          Users
         </Link>
       )}
       <Link
@@ -48,11 +64,15 @@ const Navbar = () => {
       {user && (
         <button
           onClick={() => navigate("/educator")}
-          className="text-left  hover:bg-purple-950 hover:text-white text-purple-800 hover:cursor-pointer p-1 font-bold"
+          className={`text-left  hover:bg-purple-950 hover:text-white
+           text-purple-800 hover:cursor-pointer p-1 font-bold ${
+             isAdmin ? "hidden" : "block"
+           }`}
         >
           {isEducator ? "Educator Dashboard" : "Become Educator"}
         </button>
       )}
+
       {/* logout button 👇 */}
       {user ? (
         <button

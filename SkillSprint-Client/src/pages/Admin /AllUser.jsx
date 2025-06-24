@@ -28,7 +28,7 @@ const AllUser = () => {
       if (res?.data?.role == "teacher") {
         await fetchUsers();
       }
-      console.log("User role updated:", res.data);
+      console.log("User role updated");
     } catch (error) {
       console.error("Failed to update role:", error);
     }
