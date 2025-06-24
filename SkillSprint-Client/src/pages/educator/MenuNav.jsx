@@ -1,6 +1,6 @@
 import useUser from "../../hook/useUser";
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { assets, dummyEducatorData } from "../../assets/assets";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../ReduxAPI/Auth/authSlice";
@@ -12,8 +12,10 @@ function MenuNav() {
   const handleLogout = () => {
     dispatch(logOutUser()); //call the logout function
   };
+  const location = useLocation();
   const educatorData = dummyEducatorData;
 
+  const isLoginRoute = location.pathname === "/login";
   const menuItems = (
     <>
       {user ? (

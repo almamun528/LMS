@@ -1,10 +1,11 @@
 import React from "react";
 import { assets } from "../../assets/assets";
-import useUser from "../../hook/useUser";
+
 import { NavLink } from "react-router-dom";
+import useIsEducator from "../../hook/useIsEducator";
 
 const SideBar = () => {
-  const { isEducator } = useUser();
+  const isEducator = useIsEducator();
   const menuItem = [
     { name: "Dashboard", path: "/educator", icon: assets.home_icon, id: 1 },
     {
