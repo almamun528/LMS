@@ -21,15 +21,10 @@ import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./component/Blogs/BlogDetails";
 import "quill/dist/quill.snow.css";
 import AboutUs from "./component/About Us/AboutUs";
-
-
-
+import AllUser from "./pages/Admin /AllUser";
+import UsersProfile from "./pages/Admin /UsersProfile";
 
 const App = () => {
-
-
-
-  
   const dispatch = useDispatch();
   //!User Observer
   useEffect(() => {
@@ -38,11 +33,6 @@ const App = () => {
       unsubscribe();
     };
   }, [dispatch]);
-
-
-
-
-
 
   const isEducatorRoute = useMatch("/educator/*"); //is the user belongs from tutor
   return (
@@ -67,7 +57,7 @@ const App = () => {
         />
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/about" element={<AboutUs/>} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/course-list" element={<CoursesList />} />
         <Route path="/course-list/:input" element={<CoursesList />} />
@@ -75,6 +65,10 @@ const App = () => {
         <Route path="/my-enrollments" element={<MyEnrollments />} />
         <Route path="/player/:courseID" element={<Player />} />
         <Route path="/loading/:path" element={<Loading />} />
+
+        {/* Admin Route */}
+        <Route path="/admin/all-users" element={<AllUser />} />
+        <Route path="/user-profile/:userId" element={<UsersProfile />} />
 
         {/* ✅ Nested routes setup */}
         <Route path="/educator" element={<Educator />}>

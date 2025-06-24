@@ -5,7 +5,7 @@ import connectDB from "./configs/mongodb.js";
 import userRoutes from "./routes/userRoutes.js";
 
 const PORT = process.env.PORT || 3000;
-
+// https://lms-backend-mu-lac.vercel.app/
 // Initializer Express
 const app = express();
 app.use(express.json());
