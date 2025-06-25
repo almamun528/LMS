@@ -6,8 +6,8 @@ function Copyright() {
       <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
         <aside>
           <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by Skill
-            Sprint
+            Copyright © {new Date().getFullYear()} - Abdullah Al Mamun. All
+            rights reserved.
           </p>
         </aside>
       </footer>

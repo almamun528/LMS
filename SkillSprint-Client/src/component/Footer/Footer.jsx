@@ -3,8 +3,11 @@ import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import Copyright from "./Copyright";
+import useUser from "../../hook/useUser";
 
 function Footer() {
+  const { user } = useUser();
+
   return (
     <>
       <section className="border-purple-900 px-6 py-10 bg-gray-50 border-b">
@@ -55,15 +58,17 @@ function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link
-                  onClick={() => scrollTo(0, 0)}
-                  to="/login"
-                  className="hover:text-purple-700"
-                >
-                  Login
-                </Link>
-              </li>
+              {!user && (
+                <li>
+                  <Link
+                    onClick={() => scrollTo(0, 0)}
+                    to="/login"
+                    className="hover:text-purple-700"
+                  >
+                    Login
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   onClick={() => scrollTo(0, 0)}
@@ -79,10 +84,26 @@ function Footer() {
           {/* Social + Newsletter */}
           <div className="md:w-1/3">
             <div className="flex gap-4 mb-6">
-              <img className="h-6 w-6" src={assets.linkedin} alt="linkedin" />
-              <img className="h-6 w-6" src={assets.facebook} alt="facebook" />
-              <img className="h-6 w-6" src={assets.twitter} alt="twitter" />
-              <img className="h-6 w-6" src={assets.instagram} alt="instagram" />
+              <img
+                className="h-6 w-6 hover:cursor-pointer "
+                src={assets.linkedin}
+                alt="linkedin"
+              />
+              <img
+                className="h-6 w-6 hover:cursor-pointer "
+                src={assets.facebook}
+                alt="facebook"
+              />
+              <img
+                className="h-6 w-6 hover:cursor-pointer "
+                src={assets.twitter}
+                alt="twitter"
+              />
+              <img
+                className="h-6 w-6 hover:cursor-pointer "
+                src={assets.instagram}
+                alt="instagram"
+              />
             </div>
             <form>
               <h6 className="footer-title">Newsletter</h6>

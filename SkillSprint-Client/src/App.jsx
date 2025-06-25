@@ -23,6 +23,8 @@ import "quill/dist/quill.snow.css";
 import AboutUs from "./component/About Us/AboutUs";
 import AllUser from "./pages/Admin /AllUser";
 import UsersProfile from "./pages/Admin /UsersProfile";
+import AdminOnlyRoute from "./ProtectedRoute/AdminOnlyRoute";
+import EducatorOnlyRoute from "./ProtectedRoute/EducatorOnlyRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -67,11 +69,32 @@ const App = () => {
         <Route path="/loading/:path" element={<Loading />} />
 
         {/* Admin Route */}
-        <Route path="/admin/all-users" element={<AllUser />} />
-        <Route path="/user-profile/:userId" element={<UsersProfile />} />
+        <Route
+          path="/admin/all-users"
+          element={
+            <AdminOnlyRoute adminOnly={true}>
+              <AllUser />
+            </AdminOnlyRoute>
+          }
+        />
+        <Route
+          path="/user-profile/:userId"
+          element={
+            <AdminOnlyRoute adminOnly={true}>
+              <UsersProfile />
+            </AdminOnlyRoute>
+          }
+        />
 
         {/* ✅ Nested routes setup */}
-        <Route path="/educator" element={<Educator />}>
+        <Route
+          path="/educator"
+          element={
+            <EducatorOnlyRoute educatorOnly={true}>
+              <Educator />
+            </EducatorOnlyRoute>
+          }
+        >
           <Route index element={<Dashboard />} /> {/* default nested route */}
           <Route path="add-course" element={<AddCourse />} />
           <Route path="my-courses" element={<MyCourses />} />
