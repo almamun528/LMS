@@ -71,6 +71,7 @@ import BlogNumber8 from "./Blogs/BlogNumber8.jpeg";
 import BlogNumber9 from "./Blogs/BlogNumber9.avif";
 import BlogWriter from "./Blogs/BlogWritter.jpg";
 import user_icon2 from "./user.png";
+import Learning from "./Blogs/Blog11.webp";
 
 // About us page's images
 import AboutUsBanner from "./AboutUS/AboutUsBanner.jpg";
@@ -873,7 +874,8 @@ export const blogPosts = [
     title: "Master the Art of Self-Learning in the Digital Age",
     subHeading: "Why self-paced learning is the future of education",
     description:
-      "The internet has revolutionized education by making knowledge more accessible than ever before. With the rise of online courses, YouTube tutorials, podcasts, and e-books, individuals now have the power to chart their own learning journey. This blog dives into the benefits of self-paced learning, such as flexibility, cost-effectiveness, and personalized progress. It also covers techniques for setting goals, avoiding procrastination, and using digital tools like note-taking apps and time trackers to stay on track.",
+      "The internet has revolutionized education by making knowledge more accessible than ever before. With the rise of online courses, YouTube tutorials, podcasts, and e-books, individuals now have the power to chart their own learning journey. This blog dives into the benefits of self-paced learning, such as flexibility, cost-effectiveness, and personalized progress. It also explores practical strategies for goal setting, maintaining motivation, and minimizing distractions in a digital world. Readers will learn how to build their own curriculum, create effective study environments, and stay accountable using modern tools like Notion, Trello, Pomodoro timers, and habit trackers. Whether you're a student, a professional upskilling for your career, or a curious learner, this guide provides actionable tips to help you thrive in the self-learning era.",
+
     image: BlogNumber1,
   },
   {
@@ -949,5 +951,13 @@ export const blogPosts = [
     description:
       "Online learning can feel isolating, but peer interaction changes everything. This blog discusses the benefits of learning in groups—whether through forums, live sessions, or study clubs. It provides practical ways to form or join learning communities and how to use social accountability to boost retention, engagement, and success. A must-read for online learners who want to stay inspired and connected.",
     image: BlogNumber10,
+  },
+  {
+    id: 11,
+    title: "Learning by Doing: The Most Powerful Way to Retain Knowledge",
+    subHeading: "Why hands-on practice beats passive consumption every time",
+    description:
+      "In a world overflowing with tutorials, lectures, and information, one principle remains timeless: true understanding comes through action. 'Learning by doing' is more than just a catchy phrase — it's a proven method for mastering new skills, especially in fields like programming, design, writing, and entrepreneurship. Rather than endlessly watching videos or reading guides, applying what you learn through real-world practice leads to deeper comprehension and long-term retention.This blog explores the science behind experiential learning and why active engagement with material builds stronger neural connections. You'll discover how taking small, consistent actions — such as coding along with a tutorial, building a personal project, teaching others, or solving real problems — rapidly accelerates skill development. We also cover practical ways to implement this method in your daily learning routine. From using interactive coding platforms and project-based learning courses to participating in online challenges like #100DaysOfCode, you'll find tools and tips to get started. You'll also learn how to embrace mistakes as valuable learning opportunities, track your progress, and reflect on what you've built to solidify your growth.Whether you're learning to code, mastering a language, or starting a business, the key is to shift from passive learning to active doing. By the end of this guide, you'll understand why action is the ultimate teacher and how to apply the 'learning by doing' approach to make real progress in your self-education journey.",
+    image: Learning,
   },
 ];
