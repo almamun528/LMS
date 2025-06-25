@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../AxiosApi/axiosInstance";
 import Footer from "../../component/Footer/Footer";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AllUser = () => {
   const [allUser, setAllUser] = useState([]);
-
   const fetchUsers = async () => {
     try {
       const res = await axiosInstance.get("/api/users");
@@ -20,19 +20,47 @@ const AllUser = () => {
   }, []);
 
   //! Call backend APi to update user's status User to Teacher
+
   const handleUserRoleStatus = async (userId) => {
-    try {
-      const res = await axiosInstance.patch(`/api/users/${userId}`, {
-        role: "teacher",
-      });
-      if (res?.data?.role == "teacher") {
-        await fetchUsers();
+    // Show confirmation alert first
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "This user will be promoted to Teacher role.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, promote!",
+    });
+
+    // If confirmed, proceed with role update
+    if (result.isConfirmed) {
+      try {
+        const res = await axiosInstance.patch(`/api/users/${userId}`, {
+          role: "teacher",
+        });
+
+        if (res?.data?.role === "teacher") {
+          await fetchUsers();
+        }
+        // final alert
+        Swal.fire({
+          title: "Success!",
+          text: "User role updated to Teacher.",
+          icon: "success",
+        });
+
+        console.log("User role updated");
+      } catch (error) {
+        console.error("Failed to update role:", error);
+
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to update user role.",
+          icon: "error",
+        });
       }
-      console.log("User role updated");
-    } catch (error) {
-      console.error("Failed to update role:", error);
     }
-    console.log(userId);
   };
 
   return (
@@ -81,7 +109,7 @@ const AllUser = () => {
                       <td>
                         <button
                           onClick={() => handleUserRoleStatus(user?._id)}
-                          className={`btn btn-xs ${
+                          className={`btn btn-xs hover:cursor-pointer ${
                             user?.role == "teacher"
                               ? "bg-purple-900 text-white"
                               : ""
@@ -90,7 +118,7 @@ const AllUser = () => {
                             user?.role == "teacher" || user?.role == "admin"
                           }
                         >
-                          Make Teacher
+                          Promote
                         </button>
                       </td>
                     </tr>

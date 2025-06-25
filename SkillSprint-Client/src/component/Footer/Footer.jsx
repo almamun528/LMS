@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
@@ -115,7 +115,7 @@ function Footer() {
                     placeholder="username@site.com"
                     className="input input-bordered w-full join-item"
                   />
-                  <button className="btn btn-primary join-item">
+                  <button type="submit" className="btn btn-primary join-item">
                     Subscribe
                   </button>
                 </div>
