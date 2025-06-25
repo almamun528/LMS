@@ -4,7 +4,6 @@ import axiosInstance from "../../AxiosApi/axiosInstance";
 
 const UsersProfile = () => {
   const { userId } = useParams();
-  console.log("user id---> ", userId);
   const [mongoDBUser, setMongoDBUser] = useState();
 
   const fetchSingleUser = async () => {
@@ -19,7 +18,6 @@ const UsersProfile = () => {
     fetchSingleUser();
   }, [userId]);
 
-  console.log(mongoDBUser);
 
   return (
     <section className="my-2">

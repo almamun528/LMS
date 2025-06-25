@@ -26,7 +26,9 @@ import UsersProfile from "./pages/Admin /UsersProfile";
 import AdminOnlyRoute from "./ProtectedRoute/AdminOnlyRoute";
 import EducatorOnlyRoute from "./ProtectedRoute/EducatorOnlyRoute";
 
+
 const App = () => {
+
   const dispatch = useDispatch();
   //!User Observer
   useEffect(() => {
@@ -106,4 +108,3 @@ const App = () => {
 };
 
 export default App;
-// 6h 51m

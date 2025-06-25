@@ -4,16 +4,21 @@ import axiosInstance from "../AxiosApi/axiosInstance";
 
 const useIsAdmin = () => {
   const { user } = useUser();
-  const userId = user?.uid || user?._id; 
+  const userId = user?.uid || user?._id;
   const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAdminFromApi = async () => {
-      if (!userId) return;
+      if (!userId) {
+        setLoading(false);
+        return;
+      }
       try {
         const res = await axiosInstance.get(`/api/users/${userId}`);
         if (res.data?.role === "admin") {
           setIsAdmin(true);
+          setLoading(false);
         } else {
           setIsAdmin(false);
         }
@@ -26,7 +31,7 @@ const useIsAdmin = () => {
     fetchAdminFromApi();
   }, [userId]);
 
-  return isAdmin;
+  return { isAdmin, loading };
 };
 
 export default useIsAdmin;

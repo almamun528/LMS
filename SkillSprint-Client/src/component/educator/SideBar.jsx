@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import useIsEducator from "../../hook/useIsEducator";
 
 const SideBar = () => {
-  const isEducator = useIsEducator();
+  const { isEducator, loading } = useIsEducator();
   const menuItem = [
     { name: "Dashboard", path: "/educator", icon: assets.home_icon, id: 1 },
     {
@@ -27,7 +27,10 @@ const SideBar = () => {
       id: 4,
     },
   ];
+  if (loading) return <p>Loading....</p>;
+
   return (
+    !loading &&
     isEducator && (
       <section className="md:w-64 w-16 border-r min-h-screen text-base border-purple-950 py-2 flex flex-col">
         {menuItem?.map((item) => {
