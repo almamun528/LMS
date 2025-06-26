@@ -3,6 +3,10 @@ import cors from "cors";
 import "dotenv/config";
 import connectDB from "./configs/mongodb.js";
 import userRoutes from "./routes/userRoutes.js";
+import educatorRoutes from "./routes/educatorRoutes.js";
+import courseRouter from "./routes/courseRoutes.js";
+
+
 
 const PORT = process.env.PORT || 3000;
 // https://lms-backend-mu-lac.vercel.app/
@@ -22,12 +26,17 @@ app.use(
 
 //! ___________________________________________Route___________________________________________________________
 
-app.use("/api/users", userRoutes);
-
+app.use("/api/users", userRoutes); //user apis
+app.use("/api/educator", educatorRoutes); // educator apis
+app.use("/api/course", express.json(), courseRouter);
 // Route
 app.get("/", (req, res) => res.send("Backend Server Is Working "));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-// 7h 22m
+
+
+
+// test apis and need to watch from ---> 
+// 9h 3m 

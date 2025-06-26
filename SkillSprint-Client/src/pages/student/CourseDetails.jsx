@@ -11,6 +11,7 @@ import {
 import humanizeDuration from "humanize-duration";
 import useUser from "../../hook/useUser";
 import Loading from "../../component/student/Loading";
+import Footer from "../../component/Footer/Footer";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -35,6 +36,8 @@ const CourseDetails = () => {
     setOpenSections((prev) => ({ ...prev, [index]: !prev[index] }));
   };
   return (
+    <>
+    
     <section className="flex md:flex-row flex-col-reverse gap-10 relative items-start justify-between md:px-36 px-8 md;pt-30 pt-20 text-left">
       {/* top area */}
       <div className="absolute top-0 left-0 w-full -z-1 bg-gradient-to-b from-purple-100/70 h-[500px]"></div>
@@ -227,6 +230,10 @@ const CourseDetails = () => {
         </div>
       </div>
     </section>
+    <footer className="mt-10">
+      <Footer/>
+    </footer>
+    </>
   );
 };
 
