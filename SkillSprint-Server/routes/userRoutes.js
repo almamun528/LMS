@@ -4,7 +4,9 @@ import {
   deleteUser,
   getAllUsers,
   getUserById,
+  getUserCourseProgress,
   purchaseCourse,
+  updateCourseProgress,
   updateUser,
   userEnrolledCourses,
 } from "../controllers/userController.js";
@@ -24,7 +26,16 @@ router.patch("/:id", updateUser); //update a single user
 router.delete("/:id", deleteUser); //delete a single user
 
 router.get("/enrolled-courses", userEnrolledCourses); //get the user enrolled data
-router.post("/purchase", purchaseCourse);
+
+router.post("/purchase", purchaseCourse); 
+
+router.post("/update-course-progress", updateCourseProgress); 
+
+router.post("/get-course-progress", getUserCourseProgress);
+
+
+
+
 export default router;
 // /api/users/enrolled-courses
 // /api/users/purchase
