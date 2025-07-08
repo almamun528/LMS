@@ -4,7 +4,9 @@ import {
   deleteUser,
   getAllUsers,
   getUserById,
+  purchaseCourse,
   updateUser,
+  userEnrolledCourses,
 } from "../controllers/userController.js";
 
 const router = express.Router();
@@ -21,4 +23,8 @@ router.patch("/:id", updateUser); //update a single user
 
 router.delete("/:id", deleteUser); //delete a single user
 
+router.get("/enrolled-courses", userEnrolledCourses); //get the user enrolled data
+router.post("/purchase", purchaseCourse);
 export default router;
+// /api/users/enrolled-courses
+// /api/users/purchase
