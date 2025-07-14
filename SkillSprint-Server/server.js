@@ -16,9 +16,11 @@ app.use(express.json());
 await connectDB();
 
 
+
+// ✅ CORS middleware must be applied first
 app.use(
   cors({
-    origin: "*",
+    origin: ["http://localhost:5173", "https://splendorous-moxie-ec69ff.netlify.app"],
     credentials: true,
   })
 );
