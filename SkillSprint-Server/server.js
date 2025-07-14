@@ -18,8 +18,8 @@ await connectDB();
 // middlewares
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true,
+    origin: ["http://localhost:5173", "splendorous-moxie-ec69ff.netlify.app"],
+    credentials: true, // allow cookies and credentials
   })
 );
 
@@ -35,5 +35,3 @@ app.get("/", (req, res) => res.send("Backend Server Is Working "));
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-
