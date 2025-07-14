@@ -16,7 +16,7 @@ function CourseCard({ course }) {
         </figure>
         <div className="card-body">
           <h2 className="font-semibold">{course.courseTitle}</h2>
-          <p>{course.educator.name} Educator Name - Mamun</p>
+          <p>{course?.educator?.name}  </p>
           {/* Ratings */}
           <div className="rating-area flex gap-2 items-center justify-between">
             <span>Average Rating : {calculateRating(course)}</span>

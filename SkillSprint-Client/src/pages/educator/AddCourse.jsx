@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import uniqid from "uniquid";
 import Quill from "quill";
 import { assets } from "../../assets/assets";
+import useUser from "../../hook/useUser";
+import axiosInstance from "../../AxiosApi/axiosInstance";
 
 const AddCourse = () => {
   const quillRef = useRef(null);
   const editorRef = useRef(null);
-
+  const { user } = useUser();
   // states
   const [courseTitle, setCourseTitle] = useState("");
   const [coursePrice, setCoursePrice] = useState(0);
@@ -100,14 +102,57 @@ const AddCourse = () => {
       isPreviewFree: false,
     });
   };
-  const handleFormSubmit = async (e) => {
+
+  // backend APis call
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("form is submited");
+    if (!image) {
+      alert("Image is not attached");
+      return;
+    }
+
+    try {
+      const educatorId = user.uid;
+      const courseData = {
+        courseTitle,
+        courseDescription: quillRef.current.root.innerHTML,
+        coursePrice: Number(coursePrice),
+        discount: Number(discount),
+        courseContent: chapters,
+        educatorId,
+      };
+
+      // !form data object 
+      const formData = new FormData();
+      formData.append("courseData", JSON.stringify(courseData));
+      formData.append("image", image);
+
+      const { data } = await axiosInstance.post(
+        "/api/educator/add-course",
+        formData
+      );
+
+      if (data?.success) {
+        alert("Course Published Successfully");
+        setCourseTitle("");
+        setChapters([]);
+        setCoursePrice(0);
+        setDiscount(0);
+        setImage(null);
+        quillRef.current.root.innerHTML = "";
+      } else {
+        console.log(data?.message);
+      }
+    } catch (error) {
+      console.error("Course Add Error:", error);
+    }
   };
+
   return (
     <section className="h-screen overflow-scroll flex flex-col items-start justify-between md:p-8 md:pb-0 p-4 pt-8 pb-0">
       <form
-        onSubmit={handleFormSubmit}
+        onSubmit={handleSubmit}
         className="flex flex-col gap-4 max-w-md w-full text-gray-500"
       >
         <div className="flex flex-col gap-1">

@@ -11,19 +11,19 @@ import Footer from "../../component/Footer/Footer";
 const Player = () => {
   const [courseData, setCourseData] = useState(null);
   const { courseID } = useParams();
-  const { courses: enrolledCourses, loading, error } = useCourses();
+  const { course: enrolledCourses, loading, error } = useCourses();
   const [openSections, setOpenSections] = useState({});
   const [playerData, setPlayerData] = useState(null);
 
   const getCourseData = () => {
-    enrolledCourses.map((course) => {
+    enrolledCourses?.map((course) => {
       if (course?._id == courseID) {
         setCourseData(course);
       }
     });
   };
   useEffect(() => {
-    if (!loading && enrolledCourses.length > 0) {
+    if (!loading) {
       getCourseData();
     }
   }, [enrolledCourses, loading]);

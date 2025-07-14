@@ -109,59 +109,6 @@ export const userEnrolledCourses = async (req, res) => {
   }
 };
 
-// user course buy
-// export const purchaseCourse = async (req, res) => {
-//   try {
-//     const { courseId } = req.body;
-//     // const {origin}= req.headers
-//     const userId = req.body;
-//     const userData = await User.findById(userId);
-//     const courseData = await Course.findById(courseId);
-//     if (!userData || !courseData) {
-//       return res.json({ success: false, message: "Data Not Found" });
-//     }
-//     const purchaseData = {
-//       courseId: courseData._id,
-//       userId,
-//       amount: (
-//         courseData.coursePrice -
-//         (courseData.discount * courseData.coursePrice) / 100
-//       ).toFixed(2),
-//     };
-//     const Newpurchase = await Purchase.create(purchaseData);
-
-//     // strip getaway initialize
-
-//     const stripInstance = new Stripe(process.env.STRIPE_SECRET_KEY);
-//     const currency = process.env.CURRENCY.toLocaleLowerCase();
-//     // creating Line Items to for stripe
-//     const line_items = [
-//       {
-//         price_data: {
-//           currency,
-//           product_data: {
-//             name: courseData.courseTitle,
-//           },
-//           unit_amount: Math.floor(Newpurchase.amount) * 100,
-//         },
-//         quantity: 1,
-//       },
-//     ];
-//     const session = await stripInstance.checkout.sessions.create({
-//       success_url: `/loading/my-enrollments`,
-//       cancel_url: ``,
-//       line_items: line_items,
-//       mode: "payment",
-//       metadata: {
-//         purchaseId: Newpurchase._id.toString(),
-//       },
-//     });
-//     res.json({ success: true, session: session.url });
-//   } catch (error) {
-//     res.json({ success: false, message: error?.message });
-//   }
-// };
-
 export const purchaseCourse = async (req, res) => {
   try {
     const { courseId, userId } = req.body;

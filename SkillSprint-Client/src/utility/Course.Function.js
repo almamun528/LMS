@@ -11,7 +11,7 @@ export const calculateRating = (course) => {
   course?.courseRatings?.forEach((rating) => {
     totalRating += rating.rating;
   });
-  return totalRating / course.courseRatings.length;
+  return Math.floor(totalRating / course.courseRatings.length);
 };
 
 //function to calculate course chapter time

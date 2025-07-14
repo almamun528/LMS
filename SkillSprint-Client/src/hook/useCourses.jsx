@@ -5,13 +5,13 @@ import { fetchCourses } from "../ReduxAPI/Course/courseSlice";
 const useCourses = () => {
   const dispatch = useDispatch();
   const { courses, loading, error } = useSelector((state) => state.courses);
-  const course = courses.course;
+  
   useEffect(() => {
     if (!courses || courses.length === 0) {
       dispatch(fetchCourses());
     }
   }, [dispatch, courses]);
-  return { course, loading, error };
+  return { courses, loading, error };
 };
 
 export default useCourses;

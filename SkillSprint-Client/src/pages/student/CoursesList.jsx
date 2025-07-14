@@ -9,13 +9,13 @@ import Footer from "../../component/Footer/Footer";
 function CoursesList() {
   const navigate = useNavigate();
   //course data come from custom hook which return redux state
-  const { course, loading, error } = useCourses();
+  const { courses, loading, error } = useCourses();
   const { input } = useParams();
   const [filteredCourse, setFilteredCourse] = useState([]);
-  console.log("course List --> ", course);
+
   useEffect(() => {
-    if (course && course.length > 0) {
-      const allCourses = [...course];
+    if (courses && courses.length > 0) {
+      const allCourses = [...courses];
       // filter course based on user search
       if (input) {
         const filtered = allCourses.filter((course) =>
@@ -26,7 +26,7 @@ function CoursesList() {
         setFilteredCourse(allCourses);
       }
     }
-  }, [course, input]);
+  }, [courses, input]);
 
   if (loading) return <h2>Loading....</h2>;
   if (error) return <h2>error{error}</h2>;
@@ -64,8 +64,8 @@ function CoursesList() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-16 gap-3 px-2 md:p-0">
         {!loading &&
           !error &&
-          course &&
-          course.length > 0 &&
+          courses &&
+          courses.length > 0 &&
           filteredCourse?.map((course, idx) => (
             <CourseCard key={idx} course={course} />
           ))}

@@ -7,7 +7,7 @@ export const addCourse = async (req, res) => {
   try {
     const { courseData } = req.body;
     const imageFile = req.file;
-    const educatorId = null;
+    const educatorId = req.body;
     if (!imageFile)
       return res.json({ success: false, message: "Thumbnail Not Attached" });
 
@@ -24,6 +24,8 @@ export const addCourse = async (req, res) => {
     res.status(500).json({ message: "Server Error", error });
   }
 };
+
+
 // Get educator's course
 export const getEducatorCourses = async (req, res) => {
   try {

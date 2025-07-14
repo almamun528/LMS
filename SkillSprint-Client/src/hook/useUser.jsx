@@ -8,9 +8,13 @@ const useUser = () => {
   const [enrolledCourses, setEnrolledCourses] = useState(true);
   const user = useSelector((state) => state.auth.user);
 
+
+
+
   return {
     user,
     isAlreadyEnrolled,
+    SetIsAlreadyEnrolled,
     playerData,
     setPlayerData,
     enrolledCourses,
