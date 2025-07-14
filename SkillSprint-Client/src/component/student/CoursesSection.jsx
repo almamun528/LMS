@@ -5,7 +5,7 @@ import useCourses from "../../hook/useCourses";
 
 function CoursesSection() {
   //!courses data come from custom hook which return redux state
-  const { courses, loading, error } = useCourses();
+  const { course, loading, error } = useCourses();
 
   return (
     <section className="my-20">
@@ -40,11 +40,18 @@ function CoursesSection() {
         {/* Course Card component */}
         {!loading &&
           !error &&
-          courses
-            .slice(0, 5)
-            .map((course, idx) => (
-              <CourseCard course={course} key={course?._id} />
-            ))}
+          course?.map((course, idx) => (
+            <CourseCard course={course} key={course?._id} />
+          ))}
+        <div>
+          {course?.length === 0 ? (
+            <p className="text-green-500 text-center text-2xl">
+              Course Not Publish Yet
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
       </main>
     </section>
   );

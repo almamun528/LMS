@@ -1,12 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { dummyCourses } from "../../assets/assets";
-
+import axiosInstance from "../../AxiosApi/axiosInstance";
 
 // function for fetch course data
 export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
-  async () => {
-    return dummyCourses;
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosInstance.get("/api/course/all");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error?.response?.data?.message || "Failed to fetch courses"
+      );
+    }
   }
 );
 const coursesSlice = createSlice({
