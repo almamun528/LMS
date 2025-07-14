@@ -2,7 +2,7 @@
 
 A modern and responsive **Learning Management System (LMS)** where **educators** can upload courses and **students** can enroll in them. Designed with a clean UI, role-based authentication, and built using modern technologies.
 
-🚀 **Live Site:** [splendorous-moxie-ec69ff.netlify.app](https://splendorous-moxie-ec69ff.netlify.app/)
+🚀 **Live Site:** [splendorous-moxie-ec69ff.netlify.app](https://nimble-salmiakki-846d63.netlify.app)
 
 ---
 

@@ -15,17 +15,16 @@ app.use(express.json());
 // Connect to Database
 await connectDB();
 
-
-
 // ✅ CORS middleware must be applied first
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://splendorous-moxie-ec69ff.netlify.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://nimble-salmiakki-846d63.netlify.app",
+    ],
     credentials: true,
   })
 );
-
-
 
 //! ___________________________________________Route___________________________________________________________
 
