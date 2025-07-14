@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  addUserRating,
   createUser,
   deleteUser,
   getAllUsers,
@@ -27,15 +28,15 @@ router.delete("/:id", deleteUser); //delete a single user
 
 router.get("/enrolled-courses", userEnrolledCourses); //get the user enrolled data
 
-router.post("/purchase", purchaseCourse); 
+router.post("/purchase", purchaseCourse);
 
-router.post("/update-course-progress", updateCourseProgress); 
+router.post("/update-course-progress", updateCourseProgress);
 
 router.post("/get-course-progress", getUserCourseProgress);
 
-
-
+router.post("/add-user-rating", addUserRating); // add user rating
 
 export default router;
 // /api/users/enrolled-courses
 // /api/users/purchase
+// /api/users/add-user-rating

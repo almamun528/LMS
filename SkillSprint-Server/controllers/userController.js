@@ -162,8 +162,6 @@ export const userEnrolledCourses = async (req, res) => {
 //   }
 // };
 
-
-
 export const purchaseCourse = async (req, res) => {
   try {
     const { courseId, userId } = req.body;
@@ -259,5 +257,39 @@ export const getUserCourseProgress = async (req, res) => {
     res.json({ success: true, progressData });
   } catch (error) {
     res.json({ success: false, message: error.message });
+  }
+};
+
+// user rating
+
+export const addUserRating = async (req, res) => {
+  const { userId, rating, courseId } = req.body;
+  if (!courseId || !userId || !rating || rating < 1 || rating > 5) {
+    return res.json({ success: true, message: "Invalid Details" });
+  }
+  try {
+    const course = await Course.findById(courseId);
+    if (!course)
+      return res.json({ success: false, message: "Course Not Found" });
+    const user = await User.findById(userId);
+    if (!user || user.enrolledCourses.includes(courseId)) {
+      return res.json({
+        success: false,
+        message: "User has not purchased this course",
+      });
+    }
+    const existingRatingIndex = course.courseRating.findIndex(
+      (r) => r.userId === userId
+    );
+    if (existingRatingIndex > -1) {
+      course.courseRating[existingRatingIndex].rating = rating;
+    } else {
+      course.courseRating.push({ userId, rating });
+    }
+    // save rating into course
+    await course.save();
+    return res.json({ success: true, message: "ratting added" });
+  } catch (error) {
+    return res.json({ success: false, message: error.message });
   }
 };
