@@ -15,13 +15,15 @@ app.use(express.json());
 // Connect to Database
 await connectDB();
 
-// middlewares
+
 app.use(
   cors({
-    origin: ["http://localhost:5173", "splendorous-moxie-ec69ff.netlify.app"],
-    credentials: true, // allow cookies and credentials
+    origin: "*",
+    credentials: true,
   })
 );
+
+
 
 //! ___________________________________________Route___________________________________________________________
 
