@@ -1,9 +1,50 @@
-# Skill Sprit : A learning management system.
+# 📘 Skill Sprint - Learning Management System (LMS)
 
-Description: This project represent the Learning Management System where tutors can upload course and student(user) can buy and enroll the course..
+A modern and responsive **Learning Management System (LMS)** where **educators** can upload courses and **students** can enroll in them. Designed with a clean UI, role-based authentication, and built using modern technologies.
 
-Feature: e-commerce, video , authentication, review system. Role base authentication.
+🚀 **Live Site:** [splendorous-moxie-ec69ff.netlify.app](https://splendorous-moxie-ec69ff.netlify.app/)
 
-Design: Full responsive design for mobile, tablet and desktop friendly, Testimonial, swiper Slider
+---
 
-Functionalities : React js , tailwindCss , Firebase, Redux toolkit, Axios , DaisyUi , React Hook Form, SweetAlert2
+## ✨ Features
+
+- ✅ Role-based authentication (Admin / Educator / Student)
+- 🛒 E-commerce functionality for course purchasing
+- 🎥 Video-based courses with lectures and chapters
+- 🔐 Firebase authentication
+- 📝 Review and rating system
+- 📱 Fully responsive: mobile, tablet & desktop
+- 🔄 Swiper slider for testimonials
+- 💬 SweetAlert2 popups
+- 🔄 Redux Toolkit for state management
+
+---
+
+## 🧪 Login Credentials
+
+| Role       | Email                | Password     |
+|------------|----------------------|--------------|
+| Admin      | `admin@gmail.com`    | `Crazyboy#01` |
+| Educator   | `abdullah@gmail.com` | `Crazyboy#01` |
+
+---
+
+## 🖥️ Tech Stack
+
+- **Frontend**: React.js, TailwindCSS, DaisyUI, React Hook Form, SwiperJS
+- **Auth**: Firebase Authentication
+- **State Management**: Redux Toolkit
+- **HTTP Requests**: Axios
+- **Alerts**: SweetAlert2
+
+---
+
+
+---
+
+## ⚙️ Setup Instructions (Local Development)
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/almamun528/LMS.git
+   cd skill-sprint
